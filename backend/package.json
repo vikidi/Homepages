@@ -1,0 +1,47 @@
+{
+  "name": "ttlk-website-backend",
+  "version": "1.0.0",
+  "description": "TTLK website backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production pm2 start index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start:test": "cross-env NODE_ENV=test nodemon index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit --detectOpenHandles",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles",
+    "test:coveralls": "cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+  },
+  "author": "Tampereen Teekkareiden Lentopallokerho",
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "3.1.0",
+    "cross-env": "7.0.2",
+    "eslint": "7.11.0",
+    "jest": "26.6.0",
+    "jest-extended": "0.11.5",
+    "nodemon": "2.0.6",
+    "supertest": "5.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-mongo-sanitize": "^2.0.0",
+    "express-sanitizer": "^1.0.5",
+    "helmet": "^4.1.1",
+    "http": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.8",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pm2": "^4.5.0"
+  }
+}

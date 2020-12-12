@@ -4,7 +4,11 @@ const mongoose = require('mongoose');
 const {
   MONGO_USERNAME,
   MONGO_PASSWORD,
-  MONGO_DB,
+  MONGO_AUTH_SOURCE,
+  MONGO_URL,
+  MONGO_PORT,
+  MONGO_PROD_DB,
+  MONGO_DEV_DB,
   MONGO_TEST_DB
 } = process.env;
 
@@ -14,10 +18,12 @@ const options = {
   connectTimeoutMS: 10000,
 };
 
-let url = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0.tj1nz.mongodb.net/${MONGO_DB}?retryWrites=true&w=majority`;
+let url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_PROD_DB}?authSource=${MONGO_AUTH_SOURCE}`;
 
-if (process.env.NODE_ENV === 'test') {
-  url = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0.tj1nz.mongodb.net/${MONGO_TEST_DB}?retryWrites=true&w=majority`;
+if (process.env.NODE_ENV === 'development') {
+  url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_DEV_DB}?authSource=${MONGO_AUTH_SOURCE}`;
+} else if (process.env.NODE_ENV === 'test') {
+  url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_TEST_DB}?authSource=${MONGO_AUTH_SOURCE}`;
 }
 
 mongoose.connect(url, options)

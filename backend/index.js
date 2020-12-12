@@ -5,7 +5,7 @@ const app = require('./app');
 
 const server = http.createServer(app);
 
-const PORT = config.PORT || 3001;
+const PORT = config.PORT || 8080;
 server.listen(PORT, () => {
   logger.info(`Server running on port ${PORT}`);
 });

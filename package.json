@@ -1,0 +1,23 @@
+{
+  "name": "homepages",
+  "version": "1.0.0",
+  "description": "Ville Saarinen home page's root",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikidi/Homepages.git"
+  },
+  "author": "Ville Saarinen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vikidi/Homepages/issues"
+  },
+  "homepage": "https://github.com/vikidi/Homepages#readme",
+  "devDependencies": {
+    "eslint": "^7.15.0"
+  }
+}

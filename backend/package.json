@@ -1,7 +1,7 @@
 {
-  "name": "ttlk-website-backend",
+  "name": "homepages-backend",
   "version": "1.0.0",
-  "description": "TTLK website backend",
+  "description": "Ville Saarinen home page's backend",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production pm2 start index.js",
@@ -13,7 +13,7 @@
     "test:coverage": "cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles",
     "test:coveralls": "cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
-  "author": "Tampereen Teekkareiden Lentopallokerho",
+  "author": "Ville Saarinen",
   "license": "MIT",
   "devDependencies": {
     "coveralls": "3.1.0",

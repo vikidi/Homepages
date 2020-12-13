@@ -35,10 +35,10 @@
   },
   "homepage": "https://github.com/vikidi/Homepages#readme",
   "devDependencies": {
-    "concurrently": "^5.3.0",
-    "eslint": "^7.15.0"
+    "concurrently": "5.3.0",
+    "eslint": "7.15.0"
   },
   "dependencies": {
-    "start-server-and-test": "^1.11.6"
+    "start-server-and-test": "1.11.6"
   }
 }

@@ -37,3 +37,9 @@ jobs:
     - run: npm run install:back
     - run: npm run install:front
     - run: npm run test:full
+      
+    env:
+      SECRET: ${{ secrets.SECRET }}
+      MONGO_PORT: ${{ secrets.MONGO_PORT }}
+      MONGO_URL: ${{ secrets.MONGO_URL }}
+      MONGO_TEST_DB: ${{ secrets.MONGO_TEST_DB }}

@@ -18,12 +18,23 @@ const options = {
   connectTimeoutMS: 10000,
 };
 
-let url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_PROD_DB}?authSource=${MONGO_AUTH_SOURCE}`;
-
-if (process.env.NODE_ENV === 'development') {
-  url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_DEV_DB}?authSource=${MONGO_AUTH_SOURCE}`;
-} else if (process.env.NODE_ENV === 'test') {
-  url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_TEST_DB}?authSource=${MONGO_AUTH_SOURCE}`;
+let url = '';
+if (MONGO_USERNAME === undefined || MONGO_PASSWORD === undefined || MONGO_AUTH_SOURCE === undefined) {
+  if (process.env.NODE_ENV === 'production') {
+    url = `mongodb://${MONGO_URL}:${MONGO_PORT}/${MONGO_PROD_DB}`;
+  } else if (process.env.NODE_ENV === 'development') {
+    url = `mongodb://${MONGO_URL}:${MONGO_PORT}/${MONGO_DEV_DB}`;
+  } else if (process.env.NODE_ENV === 'test') {
+    url = `mongodb://${MONGO_URL}:${MONGO_PORT}/${MONGO_TEST_DB}`;
+  }
+} else {
+  if (process.env.NODE_ENV === 'production') {
+    url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_PROD_DB}?authSource=${MONGO_AUTH_SOURCE}`;
+  } else if (process.env.NODE_ENV === 'development') {
+    url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_DEV_DB}?authSource=${MONGO_AUTH_SOURCE}`;
+  } else if (process.env.NODE_ENV === 'test') {
+    url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}:${MONGO_PORT}/${MONGO_TEST_DB}?authSource=${MONGO_AUTH_SOURCE}`;
+  }
 }
 
 mongoose.connect(url, options)

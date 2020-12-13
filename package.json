@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Ville Saarinen home page's root",
   "scripts": {
+    "install:front": "cd ./frontend/ && npm ci",
+    "install:back": "cd ./backend/ && npm ci",
     "build": "cd ./frontend/ && npm run build && mv -f ./build/ ../backend/",
     "start:front": "cd ./frontend/ && npm start",
     "start:front-style": "cd ./frontend/ && npm run styleguidist:server",

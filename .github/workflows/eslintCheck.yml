@@ -28,4 +28,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     
     - run: npm ci
+    - run: npm run install:back
+    - run: npm run install:front
     - run: npm run lint

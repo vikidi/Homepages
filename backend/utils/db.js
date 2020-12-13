@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'development') {
 
 mongoose.connect(url, options)
   .then(() => {
-    if (process.env.NODE_ENV === 'test') {
+    if (process.env.NODE_ENV === 'test' && process.env.RESET_DB === 'true') {
       const testController = require('../controllers/testController');
       testController.resetFunc();
     }

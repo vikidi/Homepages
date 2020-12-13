@@ -4,14 +4,14 @@
   "description": "Ville Saarinen home page's backend",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production pm2 start index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "start:test": "cross-env NODE_ENV=test nodemon index.js",
+    "start:prod": "cross-env NODE_ENV=production pm2 start index.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start:test": "cross-env NODE_ENV=test RESET_DB=true nodemon index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit --detectOpenHandles",
-    "test:coverage": "cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles",
-    "test:coveralls": "cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+    "test:coverage": "rm -rf coverage && mkdir coverage && cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles --no-color 2>./coverage/jest-result.txt",
+    "test:coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "author": "Ville Saarinen",
   "license": "MIT",

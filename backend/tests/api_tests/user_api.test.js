@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const supertest = require('supertest');
-const helper = require('./test_helper');
-const testController = require('../controllers/testController');
-const app = require('../app');
+const helper = require('../test_helper');
+const testController = require('../../controllers/testController');
+const app = require('../../app');
 
 let server, api;
 

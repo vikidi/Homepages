@@ -23,7 +23,6 @@
     "styleguidist:build": "npx styleguidist build",
     "test": "cross-env CI=true react-scripts test",
     "test:coverage": "rm -rf ./coverage && mkdir coverage && cross-env CI=true react-scripts test \"--coverage\"",
-    "test:coveralls": "cat ./coverage/lcov.info | coveralls",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --config video=false"
   },
@@ -46,7 +45,6 @@
     ]
   },
   "devDependencies": {
-    "coveralls": "3.1.0",
     "cross-env": "7.0.3",
     "cypress": "6.1.0",
     "react-styleguidist": "11.1.5"

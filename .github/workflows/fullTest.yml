@@ -37,6 +37,12 @@ jobs:
     - run: npm run install:back
     - run: npm run install:front
     - run: npm run test:full
+
+    - name: Coverage Reporting
+      uses: codecov/codecov-action@v1
+      if: ${{ always() }}
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
       
     env:
       SECRET: ${{ secrets.SECRET }}

@@ -6,6 +6,7 @@
     "install:front": "cd ./frontend/ && npm ci",
     "install:back": "cd ./backend/ && npm ci",
     "build": "cd ./frontend/ && npm run build && mv -f ./build/ ../backend/",
+    "dependency:check": "depcheck",
     "start:front": "cd ./frontend/ && npm start",
     "start:front-style": "cd ./frontend/ && npm run styleguidist:server",
     "start:front-dev": "concurrently \"npm:start:front\" \"npm:start:front-style\"",
@@ -18,11 +19,16 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test:back": "cd ./backend/ && npm test",
+    "test:back-cov": "cd ./backend/ && npm run test:coverage",
     "test:front": "cd ./frontend/ && npm test",
-    "test:unit-n-integration": "npm run test:back && npm run test:front", 
+    "test:front-cov": "cd ./frontend/ && npm run test:coverage",
+    "test:unit-n-integration": "npm run test:back && npm run test:front",
+    "test:unit-n-integration-cov": "npm run test:back-cov && npm run test:front-cov",
     "test:cypress-run": "cd ./frontend/ && npm run cypress:run",
     "test:e2e": "start-server-and-test start:back-test http://localhost:8080/api/users start:front http://localhost:3000 test:cypress-run",
-    "test:full": "npm run test:unit-n-integration && npm run test:e2e"
+    "test:full": "npm run test:unit-n-integration && npm run test:e2e",
+    "test:full-cov": "npm run test:unit-n-integration-cov && npm run test:e2e",
+    "test:codecov": "echo \"NOT SET UP!\""
   },
   "repository": {
     "type": "git",
@@ -35,10 +41,12 @@
   },
   "homepage": "https://github.com/vikidi/Homepages#readme",
   "devDependencies": {
-    "concurrently": "^5.3.0",
-    "eslint": "^7.15.0"
+    "codecov": "3.8.1",
+    "concurrently": "5.3.0",
+    "depcheck": "1.3.1",
+    "eslint": "7.15.0"
   },
   "dependencies": {
-    "start-server-and-test": "^1.11.6"
+    "start-server-and-test": "1.11.6"
   }
 }

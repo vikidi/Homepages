@@ -5,7 +5,7 @@ name: Full Test
 
 on:
   push:
-    branches: [ development, main, release ]
+    branches: [ main, release ]
   pull_request:
     branches: [ development, main, release ]
 
@@ -36,7 +36,13 @@ jobs:
     - run: npm ci
     - run: npm run install:back
     - run: npm run install:front
-    - run: npm run test:full
+    - run: npm run test:full-cov
+
+    - name: Coverage Reporting
+      uses: codecov/codecov-action@v1
+      if: ${{ always() }}
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
       
     env:
       SECRET: ${{ secrets.SECRET }}

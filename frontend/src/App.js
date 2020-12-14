@@ -2,11 +2,13 @@ import React, { Suspense, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createBrowserHistory } from 'history'
 import { Router, Route, Switch } from 'react-router-dom'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/core/styles'
 
 import { setUser } from './reducers/userReducer'
 import { setLanguage } from './reducers/languageReducer'
 import { setTheme } from './reducers/themeReducer'
+
+import provideTheme from './utils/themeService'
 
 // Views
 import MainView from './views/MainView/MainView'
@@ -23,12 +25,8 @@ const App = () => {
 
   // Fetch theme
   const theme = useSelector(store => {
-    const storetheme = store.theme ?? { name: 'dark' }
-    return createMuiTheme({
-      palette: {
-        type: storetheme.name,
-      },
-    })
+    const storeTheme = store.theme ?? { name: 'dark' }
+    return provideTheme(storeTheme.name)
   })
 
   // Setup user, language and theme

@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit --detectOpenHandles",
-    "test:coverage": "rm -rf coverage && mkdir coverage && cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles --no-color 2>./coverage/jest-result.txt"
+    "test:coverage": "rm -rf coverage && mkdir coverage && cross-env NODE_ENV=test jest --coverage --verbose --runInBand --forceExit --detectOpenHandles"
   },
   "author": "Ville Saarinen",
   "license": "MIT",

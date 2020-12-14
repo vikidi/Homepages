@@ -1,6 +1,6 @@
 const light = {
   palette: {
-    type: 'light'
+    type: 'light',
   },
 }
 

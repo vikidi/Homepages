@@ -1,12 +1,12 @@
 import React from 'react'
 
-import TutorialButton from '../../components/TutorialButton/TutorialButton'
+import BasicButton from '../../components/BasicButton/BasicButton'
 
 const MainView = () => {
   return (
     <div>
       <h2>Welcome to my home page!</h2>
-      <TutorialButton>Hello from my homepage!</TutorialButton>
+      <BasicButton>Hello from my homepage!</BasicButton>
     </div>
   )
 }

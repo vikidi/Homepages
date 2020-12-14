@@ -4,6 +4,9 @@ import { Provider } from 'react-redux'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+// Translations
+import './i18n'
+
 // Redux store
 import store from './store'
 

@@ -36,7 +36,7 @@ jobs:
     - run: npm ci
     - run: npm run install:back
     - run: npm run install:front
-    - run: npm run test:full
+    - run: npm run test:full-cov
 
     - name: Coverage Reporting
       uses: codecov/codecov-action@v1

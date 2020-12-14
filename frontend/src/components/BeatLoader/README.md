@@ -1,0 +1,3 @@
+Normal beat loader:
+
+    <BeatLoader />

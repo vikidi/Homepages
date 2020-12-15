@@ -1,13 +1,13 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import BeatLoader from './BeatLoader'
+import Navigation from './Navigation'
 
-describe('<BeatLoader />', () => {
+describe('<Navigation />', () => {
   test.skip('Content is rendered', async () => {
 
     render(
-      <BeatLoader />
+      <Navigation />
     )
   })
 })

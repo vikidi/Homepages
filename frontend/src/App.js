@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect, lazy } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createBrowserHistory } from 'history'
 import { Router, Route, Switch } from 'react-router-dom'
@@ -10,13 +10,14 @@ import { setTheme } from './reducers/themeReducer'
 
 import provideTheme from './utils/themeService'
 
-// Views
-import MainView from './views/MainView/MainView'
-
 // Components
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import BeatLoader from './components/BeatLoader/BeatLoader'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
+
+// Views
+const MainView = lazy(() => import('./views/MainView/MainView'))
 
 var hist = createBrowserHistory()
 
@@ -51,13 +52,15 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Suspense fallback={<BeatLoader />} >
-        <Router history={hist}>
-          <Switch>
-            <Route path='/' component={MainView} />
-          </Switch>
-        </Router>
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<BeatLoader />} >
+          <Router history={hist}>
+            <Switch>
+              <Route path='/' component={MainView} />
+            </Switch>
+          </Router>
+        </Suspense>
+      </ErrorBoundary>
     </ThemeProvider>
   )
 }

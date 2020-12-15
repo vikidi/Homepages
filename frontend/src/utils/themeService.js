@@ -1,8 +1,9 @@
+import { lazy } from 'react'
 import { createMuiTheme } from '@material-ui/core/styles'
 
-// Themes
-import dark from '../assets/themes/dark'
-import light from '../assets/themes/light'
+// Themes, use lazy loading to fetch only needed themes
+const dark = lazy(() => import('../assets/themes/dark'))
+const light = lazy (() => import('../assets/themes/light'))
 
 const provideTheme = (name) => {
   let theme = dark // Default, should not be used

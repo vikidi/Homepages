@@ -10,14 +10,14 @@ import { setTheme } from './reducers/themeReducer'
 
 import provideTheme from './utils/themeService'
 
-// Views
-const MainView = lazy(() => import('./views/MainView/MainView'))
-
 // Components
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import BeatLoader from './components/BeatLoader/BeatLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
+
+// Views
+const MainView = lazy(() => import('./views/MainView/MainView'))
 
 var hist = createBrowserHistory()
 

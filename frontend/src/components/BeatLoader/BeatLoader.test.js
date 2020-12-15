@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 import BeatLoader from './BeatLoader'
 
 describe('<BeatLoader />', () => {
-  test('Correct text is rendered', async () => {
+  test('Content is rendered', async () => {
 
     render(
       <BeatLoader />

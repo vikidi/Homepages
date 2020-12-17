@@ -1,15 +1,16 @@
 import React from 'react'
 
-import BasicButton from '../../components/BasicButton/BasicButton'
 import BeatLoader from '../../components/BeatLoader/BeatLoader'
 
 const MainView = () => {
   return (
-    <div>
-      <h2>Welcome to my home page!</h2>
-      <BasicButton>Hello from my homepage!</BasicButton>
+    <React.Fragment>
+      <center>
+        <h1>Welcome to my home page!</h1>
+        <h3>- Pages are still under development -</h3>
+      </center>
       <BeatLoader />
-    </div>
+    </React.Fragment>
   )
 }
 

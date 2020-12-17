@@ -6,6 +6,6 @@ describe('Home Page', function() {
 
   it('Front page is shown', function() {
     cy.visit('http://localhost:3000')
-    cy.contains('Hello from my homepage!')
+    cy.get('h1').contains('Welcome to my home page!')
   })
 })

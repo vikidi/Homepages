@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import { Provider } from 'react-redux'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+import BeatLoader from './components/BeatLoader/BeatLoader'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
+
+// Translations
+import './i18n'
+
+// Redux store
+import store from './store'
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ErrorBoundary>
+        <Suspense fallback={<BeatLoader />} >
+          <App />
+        </Suspense>
+      </ErrorBoundary>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )

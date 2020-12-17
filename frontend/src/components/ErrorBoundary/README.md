@@ -1,0 +1,1 @@
+ErrorBoundary provides a fallback error handler for Suspense components.

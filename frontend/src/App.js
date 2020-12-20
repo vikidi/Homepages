@@ -23,7 +23,7 @@ const SettingsView = lazy(() => import('./views/SettingsView/SettingsView'))
 var hist = createBrowserHistory()
 
 const App = () => {
-  const dispatch = useDispatch()
+  const d = useDispatch()
 
   // Fetch theme
   const theme = useSelector(store => {
@@ -35,20 +35,19 @@ const App = () => {
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser')
     if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON)
-      dispatch(setUser(user))
+      d(setUser(JSON.parse(loggedUserJSON)))
     }
 
     const lang = window.localStorage.getItem('selectedLanguage')
     if (lang) {
-      dispatch(setLanguage(JSON.parse(lang)))
+      d(setLanguage(JSON.parse(lang)))
     }
 
     const localtheme = window.localStorage.getItem('selectedTheme')
     if (localtheme) {
-      dispatch(setTheme(JSON.parse(localtheme)))
+      d(setTheme(JSON.parse(localtheme)))
     }
-  }, [dispatch])
+  }, [d])
 
   return (
     <ThemeProvider theme={theme}>

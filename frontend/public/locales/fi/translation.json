@@ -1,1 +1,12 @@
-{}
+{
+  "ThemeSelection": {
+    "label": "Teema",
+    "ThemeNames": {
+      "dark": "Tumma",
+      "light": "Vaalea"
+    }
+  },
+  "LanguageSelection": {
+    "label": "Kieli"
+  }
+}

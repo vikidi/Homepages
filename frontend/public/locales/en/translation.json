@@ -1,1 +1,12 @@
-{}
+{
+  "ThemeSelection": {
+    "label": "Theme",
+    "ThemeNames": {
+      "dark": "Dark",
+      "light": "Light"
+    }
+  },
+  "LanguageSelection": {
+    "label": "Language"
+  }
+}

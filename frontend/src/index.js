@@ -13,6 +13,9 @@ import './i18n'
 // Redux store
 import store from './store'
 
+// CSS for whole app
+import './index.css'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

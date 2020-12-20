@@ -18,6 +18,7 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 // Views
 const MainView = lazy(() => import('./views/MainView/MainView'))
+const SettingsView = lazy(() => import('./views/SettingsView/SettingsView'))
 
 var hist = createBrowserHistory()
 
@@ -56,6 +57,7 @@ const App = () => {
         <Suspense fallback={<BeatLoader />} >
           <Router history={hist}>
             <Switch>
+              <Route path='/settings' component={SettingsView} />
               <Route path='/' component={MainView} />
             </Switch>
           </Router>

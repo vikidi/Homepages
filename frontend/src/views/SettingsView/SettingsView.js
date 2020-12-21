@@ -8,6 +8,8 @@ import { useTheme } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import MenuItem from '@material-ui/core/MenuItem'
 import Divider from '@material-ui/core/Divider'
+import Typography from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container'
 
 // Material UI Icons
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
@@ -66,6 +68,12 @@ const SettingsView = () => {
       <Grid item xs={9}>
         <BackgroundPaper>
           <GridContainer direction='column' vertical='stretch'>
+
+            <Typography variant="h2" gutterBottom>{t('SettingsView.title')}</Typography>
+            <Container maxWidth='sm'>
+              <Typography variant="subtitle1" display="block" gutterBottom>{t('SettingsView.description')}</Typography>
+            </Container>
+
             <Selector
               label={t('ThemeSelection.label')}
               value={theme.name}

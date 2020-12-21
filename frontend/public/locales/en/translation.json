@@ -1,5 +1,7 @@
 {
   "SettingsView": {
+    "title": "Settings",
+    "description": "These settings are customisable for you to ensure the best user experience.",
     "Autosave": {
       "label": "Using autosave"
     }

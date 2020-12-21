@@ -1,5 +1,7 @@
 {
   "SettingsView": {
+    "title": "Asetukset",
+    "description": "Sinun on mahdollista muuttaa asetuksiasi, jotta saat parhaan mahdollisen käyttäjäkokemuksen.",
     "Autosave": {
       "label": "Automaattinen tallennus"
     }

@@ -6,15 +6,15 @@ import Paper from '@material-ui/core/Paper'
 
 import styles from './BackgroundPaper.module.css'
 
-const useStyles = makeStyles((/*theme*/) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 5,
-    padding: '5vw',
-    margin: '10px',
+    padding: theme.spacing(8),
+    margin: theme.spacing(6),
   },
 }))
 
-const BackgroundPaper = ({ fullHeight, children }) => {
+const BackgroundPaper = ({ center, children }) => {
   const classes = useStyles()
 
   return (
@@ -23,7 +23,7 @@ const BackgroundPaper = ({ fullHeight, children }) => {
         root: classes.root
       }}
       elevation={2}
-      className={fullHeight ? styles.fullHeight : null}
+      className={center ? styles.center : null}
     >
 
       {children}
@@ -37,12 +37,12 @@ BackgroundPaper.propTypes = {
   /** Components inside */
   children: PropTypes.node,
 
-  /** If true fills the whole page */
-  fullHeight: PropTypes.bool
+  /** Centering of items */
+  center: PropTypes.bool
 }
 
 BackgroundPaper.defaultProps = {
-  fullHeight: false
+  center: true
 }
 
 export default BackgroundPaper

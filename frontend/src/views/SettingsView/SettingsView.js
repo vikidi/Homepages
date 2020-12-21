@@ -37,7 +37,7 @@ const SettingsView = () => {
   return (
     <GridContainer>
       <Grid item xs={9}>
-        <BackgroundPaper fullHeight>
+        <BackgroundPaper>
           <Selector
             label={t('ThemeSelection.label')}
             value={theme.name}

@@ -8,5 +8,9 @@
   },
   "LanguageSelection": {
     "label": "Kieli"
+  },
+  "NavigationLinks": {
+    "home": "Koti",
+    "settings": "Asetukset"
   }
 }

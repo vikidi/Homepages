@@ -4,6 +4,8 @@ import { Provider } from 'react-redux'
 import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
+import { BrowserRouter } from 'react-router-dom'
+//import { createBrowserHistory } from 'history'
 
 import BeatLoader from './components/BeatLoader/BeatLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
@@ -17,15 +19,19 @@ import store from './store'
 // CSS for whole app
 import './index.css'
 
+//var hist = createBrowserHistory()
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ErrorBoundary>
-        <Suspense fallback={<BeatLoader />} >
-          <App />
-        </Suspense>
-      </ErrorBoundary>
-    </Provider>
+    <BrowserRouter /*history={hist}*/>
+      <Provider store={store}>
+        <ErrorBoundary>
+          <Suspense fallback={<BeatLoader />} >
+            <App />
+          </Suspense>
+        </ErrorBoundary>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 )

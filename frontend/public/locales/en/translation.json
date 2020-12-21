@@ -8,5 +8,9 @@
   },
   "LanguageSelection": {
     "label": "Language"
+  },
+  "NavigationLinks": {
+    "home": "Home",
+    "settings": "Settings"
   }
 }

@@ -9,7 +9,7 @@ import styles from './BackgroundPaper.module.css'
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 5,
-    padding: theme.spacing(8),
+    padding: theme.spacing(4),
     margin: theme.spacing(6),
   },
 }))

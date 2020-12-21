@@ -6,9 +6,10 @@ import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select'
 
-const useStyles = makeStyles((/*theme*/) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    margin: '10px',
+    margin: theme.spacing(4),
+    textAlign: 'left'
   },
 }))
 

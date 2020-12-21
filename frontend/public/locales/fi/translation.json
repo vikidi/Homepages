@@ -1,4 +1,9 @@
 {
+  "SettingsView": {
+    "Autosave": {
+      "label": "Automaattinen tallennus"
+    }
+  },
   "ThemeSelection": {
     "label": "Teema",
     "ThemeNames": {

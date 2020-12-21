@@ -1,4 +1,9 @@
 {
+  "SettingsView": {
+    "Autosave": {
+      "label": "Using autosave"
+    }
+  },
   "ThemeSelection": {
     "label": "Theme",
     "ThemeNames": {

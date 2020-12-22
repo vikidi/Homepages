@@ -32,7 +32,7 @@ Domain name (villesaarinen.me) is from GoDaddy.
 
 Moved nameservers to CloudFlare, which handles the routing to my DDNS. CloudFlare provides mainly CDN and extra security to the application.
 
-DDNS is from no-ip, which connects to my routers public ip. The server has noip2-program running, which check every 30 minutes if the public ip has changed and changes it to no-ip DDNS server.
+DDNS is from no-ip, which connects to my routers public ip. The server has noip2-program running, which checks every 30 minutes if the public ip has changed and changes it to no-ip DDNS server.
 
 My router forwards requests to the server's private ip address. This is setup to be static in the local network.
 
@@ -50,8 +50,20 @@ To be continued...
 ### Backend
 To be continued...
 
-## Testing
+## CI/CD
 To be continued...
+
+### Github actions
+To be continued...
+
+### 3rd Party Applications
+CodeClimate  
+Cypress  
+Imgbot  
+Renovate  
+Whitesource Bolt
+Snyk
+CodeCov
 
 ### Unit Testing
 To be continued...
@@ -67,7 +79,7 @@ Graph from Codecov for coverage:
 ![GitHub Logo](https://codecov.io/gh/vikidi/Homepages/branch/main/graphs/sunburst.svg)
 
 ## Contact
-You can contact me any time throug any of these:  
+You can contact me any time through any of these:  
 Email - ville.saarinen9@gmail.com  
 Telegram - @vikidi
 
@@ -75,4 +87,4 @@ Telegram - @vikidi
 I am not currently accepting PRs to this project, since it is part of my own portfolio. If you want to help, you can leave an issue.
 
 ## License
-Open source rules! This project is under MIT license, which means you can freely use the code. If you use this project and feel generous, please include my name and website in your product: Ville Saarinen, villesaarinen.me.
+Open source rules! This project is under MIT license, which means you can freely use the code. If you use this project and feel generous, please include my name and website in your project: Ville Saarinen, villesaarinen.me.

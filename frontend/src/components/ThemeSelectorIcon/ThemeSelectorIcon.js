@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles, useTheme } from '@material-ui/styles'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
@@ -23,6 +23,7 @@ const ThemeSelectorIcon = () => {
   const classes = useStyles()
   const d = useDispatch()
   const { t } = useTranslation()
+  const theme = useTheme()
 
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
@@ -65,7 +66,18 @@ const ThemeSelectorIcon = () => {
         open={open}
         onClose={handleClose}
       >
-        {availableThemes.map(curTheme => <MenuItem key={curTheme.name} className={classes.root} onClick={() => handleThemeChange(curTheme.name)}>{t(`ThemeSelection.ThemeNames.${curTheme.name}`)}</MenuItem>)}
+        {availableThemes.map(curTheme => {
+          return (
+            <MenuItem
+              key={curTheme.name}
+              selected={theme.palette.type === curTheme.name}
+              className={classes.root}
+              onClick={() => handleThemeChange(curTheme.name)}
+            >
+              {t(`ThemeSelection.ThemeNames.${curTheme.name}`)}
+            </MenuItem>
+          )})
+        }
       </Menu>
     </>
   )

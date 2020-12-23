@@ -18,6 +18,7 @@ import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
 import GridContainer from '../../components/GridContainer/GridContainer'
 import BackgroundPaper from '../../components/BackgroundPaper/BackgroundPaper'
 import Selector from '../../components/Selector/Selector'
+import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
 
 // Reducers
 import { setTheme } from '../../reducers/themeReducer'
@@ -64,34 +65,36 @@ const SettingsView = () => {
   }
 
   return (
-    <GridContainer>
-      <Grid item xs={9}>
-        <BackgroundPaper>
-          <GridContainer direction='column' vertical='stretch'>
+    <ViewWrapper>
+      <GridContainer>
+        <Grid item xs={9}>
+          <BackgroundPaper>
+            <GridContainer direction='column' vertical='stretch'>
 
-            <Typography variant="h2" gutterBottom>{t('SettingsView.title')}</Typography>
-            <Container maxWidth='sm'>
-              <Typography variant="subtitle1" display="block" gutterBottom>{t('SettingsView.description')}</Typography>
-            </Container>
+              <Typography variant="h2" gutterBottom>{t('SettingsView.title')}</Typography>
+              <Container maxWidth='sm'>
+                <Typography variant="subtitle1" display="block" gutterBottom>{t('SettingsView.description')}</Typography>
+              </Container>
 
-            <Selector
-              label={t('ThemeSelection.label')}
-              value={theme.name}
-              handleChange={handleThemeChange}
-              menuItems={availableThemes.map(curTheme => <MenuItem key={curTheme.name} value={curTheme.name}>{t(`ThemeSelection.ThemeNames.${curTheme.name}`)}</MenuItem>)}
-            />
-            <Divider />
-            <Selector
-              label={t('LanguageSelection.label')}
-              value={language.name}
-              handleChange={handleLanguageChange}
-              menuItems={languages.map(lang => <MenuItem key={lang.short} value={lang.name}>{lang.name}</MenuItem>)}
-            />
-            <Autosave />
-          </GridContainer>
-        </BackgroundPaper>
-      </Grid>
-    </GridContainer>
+              <Selector
+                label={t('ThemeSelection.label')}
+                value={theme.name}
+                handleChange={handleThemeChange}
+                menuItems={availableThemes.map(curTheme => <MenuItem key={curTheme.name} value={curTheme.name}>{t(`ThemeSelection.ThemeNames.${curTheme.name}`)}</MenuItem>)}
+              />
+              <Divider />
+              <Selector
+                label={t('LanguageSelection.label')}
+                value={language.name}
+                handleChange={handleLanguageChange}
+                menuItems={languages.map(lang => <MenuItem key={lang.short} value={lang.name}>{lang.name}</MenuItem>)}
+              />
+              <Autosave />
+            </GridContainer>
+          </BackgroundPaper>
+        </Grid>
+      </GridContainer>
+    </ViewWrapper>
   )
 }
 

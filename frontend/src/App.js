@@ -11,12 +11,8 @@ import provideTheme from './utils/themeService'
 
 // Components
 import CssBaseline from '@material-ui/core/CssBaseline'
-import Container from '@material-ui/core/Container'
-
 import BeatLoader from './components/BeatLoader/BeatLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
-import Navigation from './components/Navigation/Navigation'
-import Footer from './components/Footer/Footer'
 
 // Views
 const MainView = lazy(() => import('./views/MainView/MainView'))
@@ -54,18 +50,10 @@ const App = () => {
       <CssBaseline />
       <ErrorBoundary>
         <Suspense fallback={<BeatLoader />} >
-
-          <Navigation />
-
-          <Container component='main'>
-            <Switch>
-              <Route path='/settings' component={SettingsView} />
-              <Route path='/' component={MainView} />
-            </Switch>
-          </Container>
-
-          <Footer />
-
+          <Switch>
+            <Route path='/settings' component={SettingsView} />
+            <Route path='/' component={MainView} />
+          </Switch>
         </Suspense>
       </ErrorBoundary>
     </ThemeProvider>

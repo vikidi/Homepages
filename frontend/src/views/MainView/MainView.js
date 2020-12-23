@@ -25,7 +25,8 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(6), // TODO: Remove this if the two parts are in column direction
   },
   quoteStars: {
-    display: 'inline'
+    display: 'inline',
+    opacity: 0.7
   },
   quoteOwner: {
     alignSelf: 'flex-end'
@@ -56,7 +57,7 @@ const MainView = () => {
                 <Star fontSize='large'/>
               </div>
               <Typography variant='Subtitle1' className={classes.quoteOwner}>
-                - Minä
+                - <i>Minä</i>
               </Typography>
             </div>
           </GridContainer>

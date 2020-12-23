@@ -26,7 +26,8 @@ const useStyles = makeStyles(theme => ({
   },
   quoteStars: {
     display: 'inline',
-    opacity: 0.7
+    opacity: 0.7,
+    color: theme.palette.primary.light
   },
   quoteOwner: {
     alignSelf: 'flex-end'

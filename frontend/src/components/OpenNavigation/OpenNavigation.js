@@ -8,6 +8,8 @@ import Grid from '@material-ui/core/Grid'
 
 import Button from '@material-ui/core/Button'
 
+import ThemeSelectorIcon from '../ThemeSelectorIcon/ThemeSelectorIcon'
+
 const useStyles = makeStyles((theme) => ({
   menu: {
     alignSelf: 'center'
@@ -53,6 +55,7 @@ const OpenNavigation = () => {
         <Grid item>
           <Link to='/' component={CustomLink}>{t('NavigationLinks.home')}</Link>
           <Link to='/settings' component={CustomLink}>{t('NavigationLinks.settings')}</Link>
+          <ThemeSelectorIcon />
         </Grid>
       </Grid>
     </>

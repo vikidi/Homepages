@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/BackgroundPaper/BackgroundPaper.module.css"],"names":[],"mappings":"AAAA,+BACE,kBAAmB,CACnB,iBACF","file":"6.ae5eee46.chunk.css","sourcesContent":[".center {\r\n  align-items: center;\r\n  text-align: center;\r\n}"]}

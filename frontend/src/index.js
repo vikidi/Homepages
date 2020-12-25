@@ -4,8 +4,7 @@ import { Provider } from 'react-redux'
 import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
-import { BrowserRouter } from 'react-router-dom'
-//import { createBrowserHistory } from 'history'
+import { HashRouter } from 'react-router-dom'
 
 import CustomLoader from './components/CustomLoader/CustomLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
@@ -19,11 +18,9 @@ import store from './store'
 // CSS for whole app
 import './index.css'
 
-//var hist = createBrowserHistory()
-
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter /*history={hist}*/>
+    <HashRouter>
       <Provider store={store}>
         <ErrorBoundary>
           <Suspense fallback={<CustomLoader />} >
@@ -31,7 +28,7 @@ ReactDOM.render(
           </Suspense>
         </ErrorBoundary>
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 )

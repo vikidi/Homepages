@@ -39,10 +39,6 @@ const BasicButton = ({ color, size, onClick, disabled, children }) => {
 }
 
 BasicButton.propTypes = {
-  children: PropTypes.string.isRequired,
-}
-
-BasicButton.propTypes = {
 
   /** Button label */
   children: PropTypes.node.isRequired,

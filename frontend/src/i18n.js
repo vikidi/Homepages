@@ -3,19 +3,19 @@ import { initReactI18next } from 'react-i18next'
 
 import Backend from 'i18next-http-backend'
 
-import languageService from './utils/languageService'
+import defaultLanguage from './utils/languageService'
 
 // Get the stored language for the translator
 const startLang = window.localStorage.getItem('selectedLanguage')
 if (!startLang) {
-  window.localStorage.setItem('selectedLanguage', JSON.stringify(languageService.defaultLanguage))
+  window.localStorage.setItem('selectedLanguage', JSON.stringify(defaultLanguage))
 }
 
 i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
-    lng: startLang ? JSON.parse(startLang).short : languageService.defaultLanguage.short,
+    lng: startLang ? JSON.parse(startLang).short : defaultLanguage.short,
     fallbackLng: 'en',
     debug: true,
     backend: {

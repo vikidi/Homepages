@@ -1,7 +1,6 @@
 import React, { Suspense, useEffect, lazy } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createBrowserHistory } from 'history'
-import { Router, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
 
 import { setUser } from './reducers/userReducer'
@@ -12,17 +11,15 @@ import provideTheme from './utils/themeService'
 
 // Components
 import CssBaseline from '@material-ui/core/CssBaseline'
-
-import BeatLoader from './components/BeatLoader/BeatLoader'
+import CustomLoader from './components/CustomLoader/CustomLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 // Views
 const MainView = lazy(() => import('./views/MainView/MainView'))
-
-var hist = createBrowserHistory()
+const SettingsView = lazy(() => import('./views/SettingsView/SettingsView'))
 
 const App = () => {
-  const dispatch = useDispatch()
+  const d = useDispatch()
 
   // Fetch theme
   const theme = useSelector(store => {
@@ -34,31 +31,29 @@ const App = () => {
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser')
     if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON)
-      dispatch(setUser(user))
+      d(setUser(JSON.parse(loggedUserJSON)))
     }
 
     const lang = window.localStorage.getItem('selectedLanguage')
     if (lang) {
-      dispatch(setLanguage(JSON.parse(lang)))
+      d(setLanguage(JSON.parse(lang)))
     }
 
     const localtheme = window.localStorage.getItem('selectedTheme')
     if (localtheme) {
-      dispatch(setTheme(JSON.parse(localtheme)))
+      d(setTheme(JSON.parse(localtheme)))
     }
-  }, [dispatch])
+  }, [d])
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ErrorBoundary>
-        <Suspense fallback={<BeatLoader />} >
-          <Router history={hist}>
-            <Switch>
-              <Route path='/' component={MainView} />
-            </Switch>
-          </Router>
+        <Suspense fallback={<CustomLoader />} >
+          <Switch>
+            <Route path='/settings' component={SettingsView} />
+            <Route path='/' component={MainView} />
+          </Switch>
         </Suspense>
       </ErrorBoundary>
     </ThemeProvider>

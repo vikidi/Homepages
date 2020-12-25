@@ -1,1 +1,55 @@
-{}
+{
+  "SettingsView": {
+    "title": "Settings",
+    "description": "These settings are customisable for you to ensure the best user experience.",
+    "Autosave": {
+      "label": "Using autosave"
+    }
+  },
+  "MainView": {
+    "Quote": {
+      "text": "Pretty OK Dude",
+      "person": "Myself"
+    }
+  },
+  "CodeBlockObj": {
+    "Tags": {
+      "MyProfile": "MyProfile",
+      "Name": "Name",
+      "Country": "Country",
+      "Work": "Work",
+      "Place": "Place",
+      "Product": "Product",
+      "Position": "Position",
+      "Studies": "Studies",
+      "Masters": "Masters",
+      "Status": "Status",
+      "Major": "Major",
+      "Minor": "Minor",
+      "Bachelor": "Bachelor",
+      "Hobbies": "Hobbies"
+    },
+    "CountryText": "Finland",
+    "PositionText": "Trainee @ R&D, Projecting & Service",
+    "StudyPlaceText": "Tampere University, Hervanta",
+    "Ongoing": "Ongoing",
+    "AReady": "Almost ready",
+    "SWE": "Software Engineering",
+    "PE": "Power Electronics",
+    "HobbiesText": "Volleyball | Coding | Gym"
+  },
+  "ThemeSelection": {
+    "label": "Theme",
+    "ThemeNames": {
+      "dark": "Dark",
+      "light": "Light"
+    }
+  },
+  "LanguageSelection": {
+    "label": "Language"
+  },
+  "NavigationLinks": {
+    "home": "Home",
+    "settings": "Settings"
+  }
+}

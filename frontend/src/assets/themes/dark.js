@@ -1,6 +1,9 @@
 const dark = {
   palette: {
-    type: 'dark'
+    type: 'dark',
+    footer: {
+      main: '#424242'
+    }
   },
 }
 

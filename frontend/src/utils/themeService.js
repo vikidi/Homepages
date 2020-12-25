@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core/styles'
 
 // Themes, use lazy loading to fetch only needed themes
 import dark from '../assets/themes/dark'
@@ -16,5 +16,10 @@ const provideTheme = (name) => {
 
   return createMuiTheme(theme)
 }
+
+export const availableThemes = [
+  { name: 'dark' },
+  { name: 'light' }
+]
 
 export default provideTheme

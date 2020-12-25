@@ -43,6 +43,9 @@ const App = () => {
     if (localtheme) {
       d(setTheme(JSON.parse(localtheme)))
     }
+    else {
+      window.localStorage.setItem('selectedTheme', JSON.stringify({ name: 'dark' }))
+    }
   }, [d])
 
   return (

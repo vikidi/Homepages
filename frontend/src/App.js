@@ -11,7 +11,7 @@ import provideTheme from './utils/themeService'
 
 // Components
 import CssBaseline from '@material-ui/core/CssBaseline'
-import BeatLoader from './components/BeatLoader/BeatLoader'
+import CustomLoader from './components/CustomLoader/CustomLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 // Views
@@ -49,7 +49,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ErrorBoundary>
-        <Suspense fallback={<BeatLoader />} >
+        <Suspense fallback={<CustomLoader />} >
           <Switch>
             <Route path='/settings' component={SettingsView} />
             <Route path='/' component={MainView} />

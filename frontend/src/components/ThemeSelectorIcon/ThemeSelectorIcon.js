@@ -39,6 +39,11 @@ const ThemeSelectorIcon = () => {
   const handleThemeChange = name => {
     d(setTheme({ name }))
     handleClose()
+
+    // Reload page if in main view, the code block does not update otherwise
+    if (window.location.pathname === '/') {
+      window.location.reload(false)
+    }
   }
 
   return (

@@ -1,14 +1,14 @@
-const CodeBlockObj = theme => {
+const CodeBlockObj = (theme, t) => {
   return [
     [
       {
-        text: '<MyProfile>',
+        text: `<${t('CodeBlockObj.Tags.MyProfile')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t<Name>',
+        text: `\t<${t('CodeBlockObj.Tags.Name')}>`,
         color: theme.palette.text.secondary
       },
       {
@@ -16,33 +16,33 @@ const CodeBlockObj = theme => {
         color: theme.palette.text.primary
       },
       {
-        text: '</Name>',
+        text: `</${t('CodeBlockObj.Tags.Name')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t<Country>',
+        text: `\t<${t('CodeBlockObj.Tags.Country')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Finland ',
+        text: ` ${t('CodeBlockObj.CountryText')} `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Country>',
+        text: `</${t('CodeBlockObj.Tags.Country')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t<Work>',
+        text: `\t<${t('CodeBlockObj.Tags.Work')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t<Place>',
+        text: `\t\t<${t('CodeBlockObj.Tags.Place')}>`,
         color: theme.palette.text.secondary
       },
       {
@@ -50,13 +50,13 @@ const CodeBlockObj = theme => {
         color: theme.palette.text.primary
       },
       {
-        text: '</Place>',
+        text: `</${t('CodeBlockObj.Tags.Place')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t<Product>',
+        text: `\t\t<${t('CodeBlockObj.Tags.Product')}>`,
         color: theme.palette.text.secondary
       },
       {
@@ -64,167 +64,167 @@ const CodeBlockObj = theme => {
         color: theme.palette.text.primary
       },
       {
-        text: '</Product>',
+        text: `</${t('CodeBlockObj.Tags.Product')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t<Position>',
+        text: `\t\t<${t('CodeBlockObj.Tags.Position')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Trainee @ R&D, Projecting & Service ',
+        text: ` ${t('CodeBlockObj.PositionText')} `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Position>',
+        text: `</${t('CodeBlockObj.Tags.Position')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t</Work>',
+        text: `\t</${t('CodeBlockObj.Tags.Work')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t<School>',
+        text: `\t<${t('CodeBlockObj.Tags.Studies')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t<Place>',
+        text: `\t\t<${t('CodeBlockObj.Tags.Place')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Tampere University, Hervanta ',
+        text: ` ${t('CodeBlockObj.StudyPlaceText')} `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Place>',
+        text: `</${t('CodeBlockObj.Tags.Place')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t<Masters>',
+        text: `\t\t<${t('CodeBlockObj.Tags.Masters')}>`,
         color: theme.palette.text.secondary
       },
     ],
     [
       {
-        text: '\t\t\t<Status>',
+        text: `\t\t\t<${t('CodeBlockObj.Tags.Status')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Ongoing ',
+        text: ` ${t('CodeBlockObj.Ongoing')} `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Status>',
+        text: `</${t('CodeBlockObj.Tags.Status')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t\t<Major>',
+        text: `\t\t\t<${t('CodeBlockObj.Tags.Major')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Software Engineering (50 op) ',
+        text: ` ${t('CodeBlockObj.SWE')} (50 op) `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Major>',
+        text: `</${t('CodeBlockObj.Tags.Major')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t</Masters>',
+        text: `\t\t</${t('CodeBlockObj.Tags.Masters')}>`,
         color: theme.palette.text.secondary
       },
     ],
     [
       {
-        text: '\t\t<Bachelor>',
+        text: `\t\t<${t('CodeBlockObj.Tags.Bachelor')}>`,
         color: theme.palette.text.secondary
       },
     ],
     [
       {
-        text: '\t\t\t<Status>',
+        text: `\t\t\t<${t('CodeBlockObj.Tags.Status')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Almost ready ',
+        text: ` ${t('CodeBlockObj.AReady')} `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Status>',
+        text: `</${t('CodeBlockObj.Tags.Status')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t\t<Major>',
+        text: `\t\t\t<${t('CodeBlockObj.Tags.Major')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Power Electronics ',
+        text: ` ${t('CodeBlockObj.PE')} `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Major>',
+        text: `</${t('CodeBlockObj.Tags.Major')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t\t<Minor>',
+        text: `\t\t\t<${t('CodeBlockObj.Tags.Minor')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Software Engineering ',
+        text: ` ${t('CodeBlockObj.SWE')} `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Minor>',
+        text: `</${t('CodeBlockObj.Tags.Minor')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t\t</Bachelor>',
+        text: `\t\t</${t('CodeBlockObj.Tags.Bachelor')}>`,
         color: theme.palette.text.secondary
       },
     ],
     [
       {
-        text: '\t</Work>',
+        text: `\t</${t('CodeBlockObj.Tags.Work')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '\t<Hobbies>',
+        text: `\t<${t('CodeBlockObj.Tags.Hobbies')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ' Volleyball | Coding | Gym ',
+        text: ` ${t('CodeBlockObj.HobbiesText')} `,
         color: theme.palette.text.primary
       },
       {
-        text: '</Hobbies>',
+        text: `</${t('CodeBlockObj.Tags.Hobbies')}>`,
         color: theme.palette.text.secondary
       }
     ],
     [
       {
-        text: '</MyProfile>',
+        text: `</${t('CodeBlockObj.Tags.MyProfile')}>`,
         color: theme.palette.text.secondary
       }
     ]

@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 //import { createBrowserHistory } from 'history'
 
-import BeatLoader from './components/BeatLoader/BeatLoader'
+import CustomLoader from './components/CustomLoader/CustomLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 // Translations
@@ -26,7 +26,7 @@ ReactDOM.render(
     <BrowserRouter /*history={hist}*/>
       <Provider store={store}>
         <ErrorBoundary>
-          <Suspense fallback={<BeatLoader />} >
+          <Suspense fallback={<CustomLoader />} >
             <App />
           </Suspense>
         </ErrorBoundary>

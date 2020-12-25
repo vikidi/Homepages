@@ -6,6 +6,38 @@
       "label": "Automaattinen tallennus"
     }
   },
+  "MainView": {
+    "Quote": {
+      "text": "Ihan OK Jäbä",
+      "person": "Minä"
+    }
+  },
+  "CodeBlockObj": {
+    "Tags": {
+      "MyProfile": "Profiilini",
+      "Name": "Nimi",
+      "Country": "Maa",
+      "Work": "Työ",
+      "Place": "Paikka",
+      "Product": "Tuote",
+      "Position": "Nimike",
+      "Studies": "Opinnot",
+      "Masters": "Dippa",
+      "Status": "Status",
+      "Major": "Pääaine",
+      "Minor": "Sivuaine",
+      "Bachelor": "Kandi",
+      "Hobbies": "Harrastukset"
+    },
+    "CountryText": "Suomi",
+    "PositionText": "Trainee @ R&D, Projektointi & Service",
+    "StudyPlaceText": "Tampereen Yliopisto, Hervanta",
+    "Ongoing": "Menossa",
+    "AReady": "Lähes valmis",
+    "SWE": "Ohjelmistosunnittelu",
+    "PE": "Tehoelektroniikka",
+    "HobbiesText": "Lentopallo | Koodaus | Sali"
+  },
   "ThemeSelection": {
     "label": "Teema",
     "ThemeNames": {

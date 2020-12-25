@@ -1,8 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { makeStyles } from '@material-ui/styles'
-import { useTheme } from '@material-ui/styles'
+import { makeStyles, useTheme } from '@material-ui/styles'
 
 // Material UI Components
 import Grid from '@material-ui/core/Grid'

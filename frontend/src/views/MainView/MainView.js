@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles, useTheme } from '@material-ui/styles'
+import { useTranslation } from 'react-i18next'
 
 // Material UI Components
 import Grid from '@material-ui/core/Grid'
@@ -12,6 +13,7 @@ import Star from '@material-ui/icons/Star'
 import GridContainer from '../../components/GridContainer/GridContainer'
 import CodeBlock from '../../components/CodeBlock/CodeBlock'
 import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
+import CustomImage from '../../components/CustomImage/CustomImage'
 
 // Data
 import CodeBlockObj from './CodeBlockObj'
@@ -21,8 +23,11 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    paddingTop: theme.spacing(6),
-    paddingBottom: theme.spacing(6), // TODO: Remove this if the two parts are in column direction
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(6),
+    [theme.breakpoints.down('xs')]: {
+      paddingBottom: theme.spacing(0)
+    }
   },
   quoteStars: {
     display: 'inline',
@@ -31,36 +36,53 @@ const useStyles = makeStyles(theme => ({
   },
   quoteOwner: {
     alignSelf: 'flex-end'
+  },
+  profilePic: {
+    marginTop: theme.spacing(6),
+    height: '20vw',
+    width: '20vw',
+    [theme.breakpoints.down('xs')]: {
+      height: '50vw',
+      width: '50vw',
+    }
   }
 }))
 
 const MainView = () => {
   const classes = useStyles()
   const theme = useTheme()
+  const { t } = useTranslation()
 
-  const codeBlock = CodeBlockObj(theme)
+  const codeBlock = CodeBlockObj(theme, t)
 
   return (
     <ViewWrapper footer={true} fullMain={true}>
       <GridContainer horizontal='center'>
 
         <Grid item sm={6}>
-          <GridContainer horizontal='center'>
-            <div className={classes.quote}>
-              <Typography variant='h4'>
-                &#34;Hyvä Jäbä&#34;
-              </Typography>
-              <div className={classes.quoteStars}>
-                <Star fontSize='large'/>
-                <Star fontSize='large'/>
-                <Star fontSize='large'/>
-                <Star fontSize='large'/>
-                <Star fontSize='large'/>
+          <GridContainer horizontal='center' direction='column'>
+
+            <Grid item className={classes.profilePic}>
+              <CustomImage round path='/img/ProfilePicSquareCartoon.png' />
+            </Grid>
+
+            <Grid item>
+              <div className={classes.quote}>
+                <Typography variant='h4'>
+                  &#34;{t('MainView.Quote.text')}&#34;
+                </Typography>
+                <div className={classes.quoteStars}>
+                  <Star fontSize='large'/>
+                  <Star fontSize='large'/>
+                  <Star fontSize='large'/>
+                  <Star fontSize='large'/>
+                  <Star fontSize='large'/>
+                </div>
+                <Typography className={classes.quoteOwner}>
+                  - <i>{t('MainView.Quote.person')}</i>
+                </Typography>
               </div>
-              <Typography variant='Subtitle1' className={classes.quoteOwner}>
-                - <i>Minä</i>
-              </Typography>
-            </div>
+            </Grid>
           </GridContainer>
         </Grid>
 

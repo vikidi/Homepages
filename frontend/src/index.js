@@ -12,6 +12,11 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 // Translations
 import './i18n'
 
+// Setup default theme if not already done
+if (!window.localStorage.getItem('selectedTheme')) {
+  window.localStorage.setItem('selectedTheme', JSON.stringify({ name: 'dark' }))
+}
+
 // Redux store
 import store from './store'
 

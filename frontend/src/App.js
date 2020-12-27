@@ -27,7 +27,7 @@ const App = () => {
     return provideTheme(storeTheme.name)
   })
 
-  // Setup user, language and theme
+  // Setup user, language and theme to redux store
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser')
     if (loggedUserJSON) {
@@ -42,9 +42,6 @@ const App = () => {
     const localtheme = window.localStorage.getItem('selectedTheme')
     if (localtheme) {
       d(setTheme(JSON.parse(localtheme)))
-    }
-    else {
-      window.localStorage.setItem('selectedTheme', JSON.stringify({ name: 'dark' }))
     }
   }, [d])
 

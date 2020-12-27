@@ -38,6 +38,11 @@
     "PE": "Tehoelektroniikka",
     "HobbiesText": "Lentopallo | Koodaus | Sali"
   },
+  "Components": {
+    "ThemeSelIcon": {
+      "tooltip": "Vaihda teema"
+    }
+  },
   "ThemeSelection": {
     "label": "Teema",
     "ThemeNames": {

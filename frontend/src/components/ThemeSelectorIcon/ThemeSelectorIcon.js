@@ -42,17 +42,17 @@ const ThemeSelectorIcon = () => {
 
     // Reload page if in main view, the code block does not update otherwise
     if (window.location.pathname === '/') {
-      window.location.reload(false)
+      window.location.reload()
     }
   }
 
   return (
     <>
-      <Tooltip title="Change theme">
+      <Tooltip title={t('Components.ThemeSelIcon.tooltip')}>
         <IconButton
-          aria-haspopup="true"
+          aria-haspopup='true'
           onClick={handleMenu}
-          color="inherit"
+          color='inherit'
         >
           <Brightness4 />
         </IconButton>

@@ -38,6 +38,11 @@
     "PE": "Power Electronics",
     "HobbiesText": "Volleyball | Coding | Gym"
   },
+  "Components": {
+    "ThemeSelIcon": {
+      "tooltip": "Change theme"
+    }
+  },
   "ThemeSelection": {
     "label": "Theme",
     "ThemeNames": {

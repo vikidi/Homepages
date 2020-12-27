@@ -63,7 +63,7 @@ const MainView = () => {
           <GridContainer horizontal='center' direction='column'>
 
             <Grid item className={classes.profilePic}>
-              <CustomImage round path='/img/ProfilePicSquareCartoon.png' />
+              <CustomImage round path='/img/ProfilePicSquareCartoon.png' alt='Profile picture of me' />
             </Grid>
 
             <Grid item>

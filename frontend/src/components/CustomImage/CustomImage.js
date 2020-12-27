@@ -5,7 +5,7 @@ import Image from 'material-ui-image'
 
 import CustomLoader from '../CustomLoader/CustomLoader'
 
-const CustomImage = ({ path, round }) => {
+const CustomImage = ({ path, round, alt }) => {
   const theme = useTheme()
 
   const roundStyle = {
@@ -19,6 +19,7 @@ const CustomImage = ({ path, round }) => {
       loading={<CustomLoader />}
       color={theme.palette.background.default}
       imageStyle={round ? roundStyle : null}
+      alt={alt}
     />
   )
 }

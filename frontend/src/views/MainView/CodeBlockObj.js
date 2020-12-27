@@ -204,7 +204,7 @@ const CodeBlockObj = (theme, t) => {
     ],
     [
       {
-        text: `\t</${t('CodeBlockObj.Tags.Work')}>`,
+        text: `\t</${t('CodeBlockObj.Tags.Studies')}>`,
         color: theme.palette.text.secondary
       }
     ],

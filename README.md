@@ -61,8 +61,8 @@ CodeClimate
 Cypress  
 Imgbot  
 Renovate  
-Whitesource Bolt
-Snyk
+Whitesource Bolt  
+Snyk  
 CodeCov
 
 ### Unit Testing

@@ -18,7 +18,7 @@ The server uses following programs to ensure better security. Reports generated 
 - UFW
 - Logwatch
 - Fail2Ban
-- ClamAV
+- (ClamAV - Not enough RAM...)
 
 ### Hacking Me
 Please do not try to hack my site or my server!
@@ -30,9 +30,9 @@ Not going into too much detail here for security reasons. If you want to know mo
 
 Domain name (villesaarinen.me) is from GoDaddy.
 
-Moved nameservers to CloudFlare, which handles the routing to my DDNS. CloudFlare provides mainly CDN and extra security to the application.
+Nameservers are moved to CloudFlare, which handles the routing to my site. CloudFlare provides also CDN service and extra security to the application.
 
-DDNS is from no-ip, which connects to my routers public ip. The server has noip2-program running, which checks every 30 minutes if the public ip has changed and changes it to no-ip DDNS server.
+DNS is updated to CloudFlare using ddclient on the server, which then requestes DNS-O-Matic to update CloudFlare. 
 
 My router forwards requests to the server's private ip address. This is setup to be static in the local network.
 

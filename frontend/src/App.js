@@ -20,9 +20,6 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 const MainView = lazy(() => import('./views/MainView/MainView'))
 const SettingsView = lazy(() => import('./views/SettingsView/SettingsView'))
 
-// Debug
-const ErrorView = lazy(() => import('./views/ErrorView/ErrorView'))
-
 const App = () => {
   const d = useDispatch()
 
@@ -49,7 +46,6 @@ const App = () => {
         <Suspense fallback={<CustomLoader />} >
           <Switch>
             <Route path='/settings' component={SettingsView} />
-            <Route path='/error' component={ErrorView} />
             <Route path='/' component={MainView} />
           </Switch>
         </Suspense>

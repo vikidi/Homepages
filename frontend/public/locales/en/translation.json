@@ -12,6 +12,10 @@
       "person": "Myself"
     }
   },
+  "ErrorView": {
+    "title": "Hmmph... My site has done gooft",
+    "text": "Please give few swear words on behalf of me and try hitting refresh."
+  },
   "CodeBlockObj": {
     "Tags": {
       "MyProfile": "MyProfile",

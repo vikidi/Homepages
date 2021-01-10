@@ -12,6 +12,10 @@
       "person": "Minä"
     }
   },
+  "ErrorView": {
+    "title": "Jaahas... Ne sivut oli siinä",
+    "text": "Lausahda pari kirosanaa minun puolestani ja lataa sivu uudelleen."
+  },
   "CodeBlockObj": {
     "Tags": {
       "MyProfile": "Profiilini",

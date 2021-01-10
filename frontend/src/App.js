@@ -5,7 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles'
 
 // Reducers
 import { setUser } from './reducers/userReducer'
-import { setLanguage } from './reducers/languageReducer'
+import { initLanguage } from './reducers/languageReducer'
 import { initTheme } from './reducers/themeReducer'
 
 // Utils
@@ -33,11 +33,7 @@ const App = () => {
       d(setUser(JSON.parse(loggedUserJSON)))
     }
 
-    const lang = window.localStorage.getItem('selectedLanguage')
-    if (lang) {
-      d(setLanguage(JSON.parse(lang)))
-    }
-
+    d(initLanguage())
     d(initTheme())
   }, [d])
 

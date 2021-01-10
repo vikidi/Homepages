@@ -1,30 +1,27 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-
 import Backend from 'i18next-http-backend'
 
-import defaultLanguage from './utils/languageService'
+import { getFromLS } from './utils/localStorage'
+import defaultLanguage from './utils/languageUtil'
 
-// Get the stored language for the translator
-const startLang = window.localStorage.getItem('selectedLanguage')
-if (!startLang) {
-  window.localStorage.setItem('selectedLanguage', JSON.stringify(defaultLanguage))
-}
+// Get the possibly stored language for the translator
+const startLang = getFromLS('selectedLanguage')
 
 i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
-    lng: startLang ? JSON.parse(startLang).short : defaultLanguage.short,
+    lng: startLang ? startLang.short : defaultLanguage.short,
     fallbackLng: 'en',
-    debug: true,
+    debug: true, // TODO: Meaning?
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
-      allowMultiLoading: false
+      allowMultiLoading: false // TODO: Meaning?
     },
     react: {
-      wait: true,
-      useSuspense: true
+      wait: true, // TODO: Meaning?
+      useSuspense: true // TODO: Meaning?
     }
   })
 

@@ -25,7 +25,7 @@ import { setLanguage } from '../../reducers/languageReducer'
 
 // Services
 import { availableThemes, getThemeByName } from '../../utils/themeUtil'
-import { languages, getByName } from '../../utils/languageService'
+import { languages, getByName } from '../../utils/languageUtil'
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -1,3 +1,6 @@
+import { setToLS, getFromLS } from '../utils/localStorage'
+import defaultLanguage from '../utils/languageUtil'
+
 const languageReducer = (state = null, action) => {
   switch (action.type) {
   case 'SET_LANGUAGE':
@@ -7,9 +10,33 @@ const languageReducer = (state = null, action) => {
   }
 }
 
-export const setLanguage = (lang) => {
+export const initLanguage = () => {
   return async dispatch => {
-    window.localStorage.setItem('selectedLanguage', JSON.stringify(lang))
+
+    // Get or set and provide initial language
+    let selectedLang = getFromLS('selectedLanguage')
+    if (!selectedLang) {
+      selectedLang = defaultLanguage
+
+      // Update to local storage
+      setToLS('selectedLanguage', selectedLang)
+    }
+
+    // Update to store
+    dispatch({
+      type: 'SET_LANGUAGE',
+      data: selectedLang
+    })
+  }
+}
+
+export const setLanguage = lang => {
+  return async dispatch => {
+
+    // Set to local storage
+    setToLS('selectedLanguage', lang)
+
+    // Set to store
     dispatch({
       type: 'SET_LANGUAGE',
       data: lang

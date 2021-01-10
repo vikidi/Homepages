@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
 
 // Reducers
-import { setUser } from './reducers/userReducer'
+import { initUser } from './reducers/userReducer'
 import { initLanguage } from './reducers/languageReducer'
 import { initTheme } from './reducers/themeReducer'
 
@@ -28,12 +28,14 @@ const App = () => {
 
   // Setup user, language and theme to redux store
   useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem('loggedUser')
-    if (loggedUserJSON) {
-      d(setUser(JSON.parse(loggedUserJSON)))
-    }
 
+    // User init
+    d(initUser())
+
+    // Language init
     d(initLanguage())
+
+    // Theme init
     d(initTheme())
   }, [d])
 

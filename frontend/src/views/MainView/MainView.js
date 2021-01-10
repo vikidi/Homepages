@@ -29,6 +29,9 @@ const useStyles = makeStyles(theme => ({
       paddingBottom: theme.spacing(0)
     }
   },
+  quoteText: {
+    textAlign: 'center'
+  },
   quoteStars: {
     display: 'inline',
     opacity: 0.7,
@@ -111,7 +114,7 @@ const MainView = () => {
 
             <Grid item>
               <div className={classes.quote}>
-                <Typography variant='h4'>
+                <Typography variant='h4' className={classes.quoteText}>
                   &#34;{t('MainView.Quote.text')}&#34;
                 </Typography>
                 <div className={classes.quoteStars}>

@@ -24,7 +24,7 @@ import { setTheme } from '../../reducers/themeReducer'
 import { setLanguage } from '../../reducers/languageReducer'
 
 // Services
-import { availableThemes } from '../../utils/themeService'
+import { availableThemes, getThemeByName } from '../../utils/themeUtil'
 import { languages, getByName } from '../../utils/languageService'
 
 const useStyles = makeStyles(theme => ({
@@ -54,7 +54,7 @@ const SettingsView = () => {
   const language = useSelector(store => store.language)
 
   const handleThemeChange = event => {
-    d(setTheme({ name: event.target.value }))
+    d(setTheme(getThemeByName(event.target.value)))
   }
 
   const handleLanguageChange = event => {

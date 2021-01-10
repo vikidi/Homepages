@@ -1,0 +1,9 @@
+{
+  "name": "dark",
+  "palette": {
+    "type": "dark",
+    "footer": {
+      "main": "#424242"
+    }
+  }
+}

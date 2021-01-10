@@ -1,21 +1,17 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 import { HashRouter } from 'react-router-dom'
 
+// Own components
+import App from './App'
 import CustomLoader from './components/CustomLoader/CustomLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 // Translations
 import './i18n'
-
-// Setup default theme if not already done
-if (!window.localStorage.getItem('selectedTheme')) {
-  window.localStorage.setItem('selectedTheme', JSON.stringify({ name: 'dark' }))
-}
 
 // Redux store
 import store from './store'
@@ -23,18 +19,24 @@ import store from './store'
 // CSS for whole app
 import './index.css'
 
+const Index = () => {
+  return (
+    <React.StrictMode>
+      <HashRouter>
+        <Provider store={store}>
+          <ErrorBoundary>
+            <Suspense fallback={<CustomLoader />} >
+              <App />
+            </Suspense>
+          </ErrorBoundary>
+        </Provider>
+      </HashRouter>
+    </React.StrictMode>
+  )
+}
+
 ReactDOM.render(
-  <React.StrictMode>
-    <HashRouter>
-      <Provider store={store}>
-        <ErrorBoundary>
-          <Suspense fallback={<CustomLoader />} >
-            <App />
-          </Suspense>
-        </ErrorBoundary>
-      </Provider>
-    </HashRouter>
-  </React.StrictMode>,
+  <Index />,
   document.getElementById('root')
 )
 

@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
 
-import { setUser } from './reducers/userReducer'
-import { setLanguage } from './reducers/languageReducer'
-import { setTheme } from './reducers/themeReducer'
+// Reducers
+import { initUser } from './reducers/userReducer'
+import { initLanguage } from './reducers/languageReducer'
+import { initTheme } from './reducers/themeReducer'
 
-import provideTheme from './utils/themeService'
+// Utils
+import provideMuiTheme from './utils/themeUtil'
 
 // Components
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -22,30 +24,19 @@ const App = () => {
   const d = useDispatch()
 
   // Fetch theme
-  const theme = useSelector(store => {
-    const storeTheme = store.theme ?? { name: 'dark' }
-    return provideTheme(storeTheme.name)
-  })
+  const theme = useSelector(store => provideMuiTheme(store.theme))
 
-  // Setup user, language and theme
+  // Setup user, language and theme to redux store
   useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem('loggedUser')
-    if (loggedUserJSON) {
-      d(setUser(JSON.parse(loggedUserJSON)))
-    }
 
-    const lang = window.localStorage.getItem('selectedLanguage')
-    if (lang) {
-      d(setLanguage(JSON.parse(lang)))
-    }
+    // User init
+    d(initUser())
 
-    const localtheme = window.localStorage.getItem('selectedTheme')
-    if (localtheme) {
-      d(setTheme(JSON.parse(localtheme)))
-    }
-    else {
-      window.localStorage.setItem('selectedTheme', JSON.stringify({ name: 'dark' }))
-    }
+    // Language init
+    d(initLanguage())
+
+    // Theme init
+    d(initTheme())
   }, [d])
 
   return (

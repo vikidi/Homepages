@@ -7,6 +7,7 @@
     "install:back": "cd ./backend/ && npm ci",
     "build": "cd ./frontend/ && npm run build && mv -f ./build/ ../backend/",
     "dependency:check": "depcheck",
+    "deadfile:front": "deadfile ./frontend/src/index.js --dir ./frontend/ --exclude cypress coverage",
     "start:front": "cd ./frontend/ && npm start",
     "start:front-style": "cd ./frontend/ && npm run styleguidist:server",
     "start:front-dev": "concurrently \"npm:start:front\" \"npm:start:front-style\"",
@@ -43,10 +44,11 @@
   "devDependencies": {
     "codecov": "3.8.1",
     "concurrently": "5.3.0",
+    "deadfile": "^1.2.2",
     "depcheck": "1.3.1",
     "eslint": "7.16.0"
   },
   "dependencies": {
-    "start-server-and-test": "1.11.6"
+    "start-server-and-test": "1.11.7"
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { makeStyles, useTheme } from '@material-ui/styles'
 import { useTranslation } from 'react-i18next'
 
@@ -13,7 +13,7 @@ import Star from '@material-ui/icons/Star'
 import GridContainer from '../../components/GridContainer/GridContainer'
 import CodeBlock from '../../components/CodeBlock/CodeBlock'
 import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
-import CustomImage from '../../components/CustomImage/CustomImage'
+import CustomLoader from '../../components/CustomLoader/CustomLoader'
 
 // Data
 import CodeBlockObj from './CodeBlockObj'
@@ -29,6 +29,9 @@ const useStyles = makeStyles(theme => ({
       paddingBottom: theme.spacing(0)
     }
   },
+  quoteText: {
+    textAlign: 'center'
+  },
   quoteStars: {
     display: 'inline',
     opacity: 0.7,
@@ -37,8 +40,12 @@ const useStyles = makeStyles(theme => ({
   quoteOwner: {
     alignSelf: 'flex-end'
   },
+  profilePicContainer: {
+    marginTop: theme.spacing(6)
+  },
   profilePic: {
-    marginTop: theme.spacing(6),
+    borderRadius: '50%',
+    boxShadow: theme.shadows[6],
     height: '20vw',
     width: '20vw',
     [theme.breakpoints.down('xs')]: {
@@ -62,13 +69,52 @@ const MainView = () => {
         <Grid item sm={6}>
           <GridContainer horizontal='center' direction='column'>
 
-            <Grid item className={classes.profilePic}>
-              <CustomImage round path='/img/ProfilePicSquareCartoon.png' />
+            <Grid item className={classes.profilePicContainer}>
+              <Suspense fallback={<CustomLoader />} >
+                <picture>
+                  <source
+                    sizes='
+                      (max-width: 600px) 50vw,
+                      20vw
+                    '
+                    srcSet='
+                      /img/ProfilePicSquareCartoon/800.avif 800w,
+                      /img/ProfilePicSquareCartoon/650.avif 650w,
+                      /img/ProfilePicSquareCartoon/500.avif 500w,
+                      /img/ProfilePicSquareCartoon/350.avif 350w,
+                      /img/ProfilePicSquareCartoon/200.avif 200w
+                    '
+                    type='image/avif'
+                  />
+                  <source
+                    sizes='
+                      (max-width: 600px) 50vw,
+                      20vw
+                    '
+                    srcSet='
+                      /img/ProfilePicSquareCartoon/800.webp 800w,
+                      /img/ProfilePicSquareCartoon/650.webp 650w,
+                      /img/ProfilePicSquareCartoon/500.webp 500w,
+                      /img/ProfilePicSquareCartoon/350.webp 350w,
+                      /img/ProfilePicSquareCartoon/200.webp 200w
+                    '
+                    type='image/webp'
+                  />
+                  <img
+                    className={classes.profilePic}
+                    alt='Profile pic'
+                    loading='lazy'
+                    decoding='async'
+                    width='650'
+                    height='650'
+                  />
+                </picture>
+              </Suspense>
             </Grid>
 
             <Grid item>
               <div className={classes.quote}>
-                <Typography variant='h4'>
+                <Typography variant='h4' className={classes.quoteText}>
                   &#34;{t('MainView.Quote.text')}&#34;
                 </Typography>
                 <div className={classes.quoteStars}>

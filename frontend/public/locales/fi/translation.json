@@ -12,6 +12,10 @@
       "person": "Minä"
     }
   },
+  "ErrorView": {
+    "title": "Jaahas... Ne sivut oli siinä",
+    "text": "Lausahda pari kirosanaa minun puolestani ja lataa sivu uudelleen."
+  },
   "CodeBlockObj": {
     "Tags": {
       "MyProfile": "Profiilini",
@@ -37,6 +41,11 @@
     "SWE": "Ohjelmistosunnittelu",
     "PE": "Tehoelektroniikka",
     "HobbiesText": "Lentopallo | Koodaus | Sali"
+  },
+  "Components": {
+    "ThemeSelIcon": {
+      "tooltip": "Vaihda teema"
+    }
   },
   "ThemeSelection": {
     "label": "Teema",

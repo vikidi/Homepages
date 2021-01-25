@@ -7,3 +7,7 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+
+img {
+  aspect-ratio: attr(width) / attr(height);
+}

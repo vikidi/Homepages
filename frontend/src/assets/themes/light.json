@@ -1,0 +1,9 @@
+{
+  "name": "light",
+  "palette": {
+    "type": "light",
+    "footer": {
+      "main": "#eeeeee"
+    }
+  }
+}

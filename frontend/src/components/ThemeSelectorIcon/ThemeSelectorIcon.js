@@ -10,7 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
 
 import { setTheme } from '../../reducers/themeReducer'
-import { availableThemes } from '../../utils/themeService'
+import { availableThemes } from '../../utils/themeUtil'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,23 +36,23 @@ const ThemeSelectorIcon = () => {
     setAnchorEl(null)
   }
 
-  const handleThemeChange = name => {
-    d(setTheme({ name }))
+  const handleThemeChange = theme => {
+    d(setTheme(theme))
     handleClose()
 
     // Reload page if in main view, the code block does not update otherwise
     if (window.location.pathname === '/') {
-      window.location.reload(false)
+      window.location.reload()
     }
   }
 
   return (
     <>
-      <Tooltip title="Change theme">
+      <Tooltip title={t('Components.ThemeSelIcon.tooltip')}>
         <IconButton
-          aria-haspopup="true"
+          aria-haspopup='true'
           onClick={handleMenu}
-          color="inherit"
+          color='inherit'
         >
           <Brightness4 />
         </IconButton>
@@ -75,9 +75,9 @@ const ThemeSelectorIcon = () => {
           return (
             <MenuItem
               key={curTheme.name}
-              selected={theme.palette.type === curTheme.name}
+              selected={theme.name === curTheme.name}
               className={classes.root}
-              onClick={() => handleThemeChange(curTheme.name)}
+              onClick={() => handleThemeChange(curTheme)}
             >
               {t(`ThemeSelection.ThemeNames.${curTheme.name}`)}
             </MenuItem>

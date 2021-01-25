@@ -6,7 +6,7 @@ const app = require('../../app');
 
 let server, api;
 
-beforeAll(async (done) => {
+beforeAll((done) => {
   server = app.listen(4000, (err) => {
     if (err) return done(err);
 
@@ -15,9 +15,8 @@ beforeAll(async (done) => {
   });
 });
 
-beforeEach(async (done) => {
+beforeEach(async () => {
   await testController.resetFunc();
-  done();
 });
 
 describe('/api/users', () => {
@@ -27,7 +26,7 @@ describe('/api/users', () => {
         .get('/api/users')
         .expect(200)
         .expect('Content-Type', /application\/json/);
-    });
+    }, 60000);
 
     test('User objects contain id field, not _id', async () => {
       const response = await api.get('/api/users');
@@ -53,7 +52,6 @@ describe('/api/users', () => {
   });
 });
 
-afterAll((done) => {
+afterAll(() => {
   mongoose.connection.close();
-  done();
 });

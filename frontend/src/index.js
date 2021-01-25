@@ -1,11 +1,12 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 import { HashRouter } from 'react-router-dom'
 
+// Own components
+import App from './App'
 import CustomLoader from './components/CustomLoader/CustomLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
@@ -18,18 +19,24 @@ import store from './store'
 // CSS for whole app
 import './index.css'
 
+const Index = () => {
+  return (
+    <React.StrictMode>
+      <HashRouter>
+        <Provider store={store}>
+          <ErrorBoundary>
+            <Suspense fallback={<CustomLoader />} >
+              <App />
+            </Suspense>
+          </ErrorBoundary>
+        </Provider>
+      </HashRouter>
+    </React.StrictMode>
+  )
+}
+
 ReactDOM.render(
-  <React.StrictMode>
-    <HashRouter>
-      <Provider store={store}>
-        <ErrorBoundary>
-          <Suspense fallback={<CustomLoader />} >
-            <App />
-          </Suspense>
-        </ErrorBoundary>
-      </Provider>
-    </HashRouter>
-  </React.StrictMode>,
+  <Index />,
   document.getElementById('root')
 )
 

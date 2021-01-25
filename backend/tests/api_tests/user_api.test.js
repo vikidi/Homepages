@@ -6,7 +6,7 @@ const app = require('../../app');
 
 let server, api;
 
-beforeAll(async (done) => {
+beforeAll((done) => {
   server = app.listen(4000, (err) => {
     if (err) return done(err);
 
@@ -15,9 +15,8 @@ beforeAll(async (done) => {
   });
 });
 
-beforeEach(async (done) => {
+beforeEach(async () => {
   await testController.resetFunc();
-  done();
 });
 
 describe('/api/users', () => {
@@ -53,7 +52,6 @@ describe('/api/users', () => {
   });
 });
 
-afterAll((done) => {
+afterAll(() => {
   mongoose.connection.close();
-  done();
 });

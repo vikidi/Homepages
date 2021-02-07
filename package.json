@@ -5,7 +5,7 @@
   "scripts": {
     "install:front": "cd ./frontend/ && npm ci",
     "install:back": "cd ./backend/ && npm ci",
-    "build": "cd ./frontend/ && npm run build && mv -f ./build/ ../backend/",
+    "build": "rm -rf ./backend/build && cd ./frontend/ && npm run build && mv -f ./build/ ../backend/",
     "dependency:check": "depcheck",
     "deadfile:front": "deadfile ./frontend/src/index.js --dir ./frontend/ --exclude cypress coverage",
     "start:front": "cd ./frontend/ && npm start",

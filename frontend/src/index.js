@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 // Own components
 import App from './App'
@@ -22,7 +22,7 @@ import './index.css'
 const Index = () => {
   return (
     <React.StrictMode>
-      <HashRouter>
+      <BrowserRouter>
         <Provider store={store}>
           <ErrorBoundary>
             <Suspense fallback={<CustomLoader />} >
@@ -30,7 +30,7 @@ const Index = () => {
             </Suspense>
           </ErrorBoundary>
         </Provider>
-      </HashRouter>
+      </BrowserRouter>
     </React.StrictMode>
   )
 }

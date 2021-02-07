@@ -54,4 +54,5 @@ describe('/api/users', () => {
 
 afterAll(() => {
   mongoose.connection.close();
+  server.close();
 });

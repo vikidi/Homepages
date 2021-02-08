@@ -54,6 +54,7 @@ const OpenNavigation = () => {
 
         <Grid item>
           <Link to='/' component={CustomLink}>{t('NavigationLinks.home')}</Link>
+          <Link to='/funstuff' component={CustomLink}>{'Fun Stuff'}</Link>
           <Link to='/settings' component={CustomLink}>{t('NavigationLinks.settings')}</Link>
           <ThemeSelectorIcon />
         </Grid>

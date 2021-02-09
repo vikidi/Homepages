@@ -87,7 +87,7 @@ const Controls = ({ gltf }) => {
   }, [])
 
   useFrame((state, deltaTime) => {
-    if ( playerOnFloor ) {
+    if ( gameOn && playerOnFloor ) {
       if ( keyStates[ 'KeyW' ] ) {
         playerVelocity.add( getForwardVector().multiplyScalar( speed * deltaTime ))
       }

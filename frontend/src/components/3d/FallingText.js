@@ -20,14 +20,14 @@ const FallingText = ({
   const config = useMemo(
     () => ({
       font,
-      size: 10,
-      height: 2,
+      size: 1,
+      height: 0.2,
       curveSegments: 30,
       bevelEnabled: true,
-      bevelThickness: 2,
-      bevelSize: 1,
-      bevelOffset: 0.1,
-      bevelSegments: 30
+      bevelThickness: 0.2,
+      bevelSize: 0.07,
+      bevelOffset: 0,
+      bevelSegments: 3
     }),
     [font]
   )
@@ -54,7 +54,10 @@ const FallingText = ({
       yoyo: true,
     })
     gsap.to(mesh.current.rotation, {
-      x: Math.PI * -0.5
+      x: Math.PI * -0.5,
+    })
+    gsap.to(mesh.current.position, {
+      y: -0.45,
     })
 
     setFallen(true)

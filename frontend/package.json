@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "cross-env": "7.0.3",
-    "cypress": "6.4.0",
+    "cypress": "6.6.0",
     "react-styleguidist": "11.1.5"
   }
 }

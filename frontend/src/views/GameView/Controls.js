@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useThree, useFrame } from 'react-three-fiber'
 import { PointerLockControls } from '@react-three/drei'
@@ -7,6 +7,7 @@ import { Octree } from 'three/examples/jsm/math/Octree'
 
 const Controls = ({ gltf }) => {
   const { camera, gl, scene } = useThree()
+  const gameOn = useRef(false)
 
   const speed = 25
   const GRAVITY = 30
@@ -19,8 +20,6 @@ const Controls = ({ gltf }) => {
 
   const playerVelocity = new THREE.Vector3()
   const playerDirection = new THREE.Vector3()
-
-  let gameOn = false
 
   const NUM_SPHERES = 20
   const SPHERE_RADIUS = 0.2
@@ -45,14 +44,14 @@ const Controls = ({ gltf }) => {
     document.addEventListener( 'pointerlockchange', () => {
       console.log(document.pointerLockElement)
       if (document.pointerLockElement) {
-        gameOn = true
+        gameOn.current = true
       } else {
-        gameOn = false
+        gameOn.current = false
       }
     })
 
     document.addEventListener( 'click', () => {
-      if (gameOn) {
+      if (gameOn.current) {
         shootSphere()
       }
     })
@@ -72,7 +71,7 @@ const Controls = ({ gltf }) => {
         }
       })
     }
-  }, [gltf])
+  }, [gltf, worldOctree])
 
   useEffect(() => {
     for (let i = 0; i < NUM_SPHERES; ++i) {
@@ -84,10 +83,10 @@ const Controls = ({ gltf }) => {
 
       spheres.push({ mesh: sphere, collider: new THREE.Sphere( new THREE.Vector3( 0, - 100, 0 ), SPHERE_RADIUS ), velocity: new THREE.Vector3() })
     }
-  }, [])
+  }, [scene, sphereGeometry, sphereMaterial, spheres])
 
   useFrame((state, deltaTime) => {
-    if ( gameOn && playerOnFloor ) {
+    if ( gameOn.current && playerOnFloor ) {
       if ( keyStates[ 'KeyW' ] ) {
         playerVelocity.add( getForwardVector().multiplyScalar( speed * deltaTime ))
       }

@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
     "@testing-library/user-event": "12.8.3",
+    "classnames": "^2.2.6",
     "eslint-plugin-cypress": "2.11.2",
     "gsap": "3.6.0",
     "history": "5.0.0",

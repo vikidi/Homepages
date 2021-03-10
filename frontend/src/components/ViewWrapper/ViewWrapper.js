@@ -1,23 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/styles'
-
 // Material UI Components
 import Container from '@material-ui/core/Container'
+import {makeStyles} from '@material-ui/styles'
+import PropTypes from 'prop-types'
+import React from 'react'
 
+import Footer from '../Footer/Footer'
 // Own Components
 import Navigation from '../Navigation/Navigation'
-import Footer from '../Footer/Footer'
 
-const useStyles = makeStyles(() => ({
-  root: {
-    marginTop: 'auto',
-    marginBottom: 'auto',
-    height: '100%'
-  },
-}))
+const useStyles = makeStyles(
+    () => ({
+      root : {marginTop : 'auto', marginBottom : 'auto', height : '100%'},
+    }))
 
-const ViewWrapper = ({ header, footer, fullMain, children }) => {
+const ViewWrapper = ({header, footer, fullMain, children}) => {
   const classes = useStyles()
 
   return (
@@ -26,8 +22,8 @@ const ViewWrapper = ({ header, footer, fullMain, children }) => {
       <Container className={fullMain ? classes.root : null} component='main'>
         {children}
       </Container>
-      {footer && <Footer />}
-    </>
+      {footer && <Footer />
+} < />
   )
 }
 

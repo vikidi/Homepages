@@ -64,7 +64,7 @@ const SettingsView = () => {
   }
 
   return (
-    <ViewWrapper>
+    <ViewWrapper header footer fullMain>
       <GridContainer>
         <Grid item xs={9}>
           <BackgroundPaper>

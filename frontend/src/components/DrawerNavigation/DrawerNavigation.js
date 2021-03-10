@@ -51,7 +51,6 @@ const DrawerNavigation = () => {
     >
       <List>
         <NavigationLink keyProp='home' to='/' icon={<HomeIcon />} text={t('NavigationLinks.home')} />
-        <NavigationLink keyProp='funstuff' to='/funstuff' icon={<HomeIcon />} text={'Fun Stuff'} />
       </List>
       <Divider />
       <List>

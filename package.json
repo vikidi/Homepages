@@ -49,6 +49,6 @@
     "eslint": "7.22.0"
   },
   "dependencies": {
-    "start-server-and-test": "1.12.0"
+    "start-server-and-test": "1.12.1"
   }
 }

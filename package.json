@@ -43,7 +43,7 @@
   "homepage": "https://github.com/vikidi/Homepages#readme",
   "devDependencies": {
     "codecov": "3.8.1",
-    "concurrently": "6.0.0",
+    "concurrently": "6.0.1",
     "deadfile": "1.2.2",
     "depcheck": "1.4.0",
     "eslint": "7.22.0"

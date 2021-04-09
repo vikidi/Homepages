@@ -23,11 +23,6 @@ process.on('SIGINT', function() {
 
 const app = express();
 
-// Serve the front from build in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('build'));
-}
-
 app.use(bodyParser.json());
 
 app.use(helmet());
@@ -44,8 +39,8 @@ require('./auth/auth');
 
 require('./router.js')(app);
 
-app.use(middleware.unknownEndpoint);
-
 app.use(middleware.errorHandler);
+
+app.use(middleware.unknownEndpoint);
 
 module.exports = app;

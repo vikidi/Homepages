@@ -18,63 +18,37 @@ function uuid() {
   )
 }
 
+const getDispatch = (msg, color, icon, timeout) => {
+  return async dispatch => {
+    const id = uuid()
+    dispatch({
+      type: 'SET_NOTIFICATION',
+      data: {
+        id,
+        message: msg,
+        color: color,
+        icon: icon
+      }
+    })
+
+    setTimeout(() => {
+      dispatch(removeNotif(id))
+    }, timeout)
+  }
+}
+
 const DEFAULT_TIME = 10000
 
 export const setInfo = (msg, timeout = DEFAULT_TIME) => {
-  return async dispatch => {
-    const id = uuid()
-    dispatch({
-      type: 'SET_NOTIFICATION',
-      data: {
-        id,
-        message: msg,
-        color: 'info',
-        icon: 'info_outline'
-      }
-    })
-
-    setTimeout(() => {
-      dispatch(removeNotif(id))
-    }, timeout)
-  }
+  return getDispatch(msg, 'info', 'info_outline', timeout)
 }
 
 export const setSuccess = (msg, timeout = DEFAULT_TIME) => {
-  return async dispatch => {
-    const id = uuid()
-    dispatch({
-      type: 'SET_NOTIFICATION',
-      data: {
-        id,
-        message: msg,
-        color: 'success',
-        icon: Check
-      }
-    })
-
-    setTimeout(() => {
-      dispatch(removeNotif(id))
-    }, timeout)
-  }
+  return getDispatch(msg, 'success', Check, timeout)
 }
 
 export const setError = (msg, timeout = DEFAULT_TIME) => {
-  return async dispatch => {
-    const id = uuid()
-    dispatch({
-      type: 'SET_NOTIFICATION',
-      data: {
-        id,
-        message: msg,
-        color: 'danger',
-        icon: Warning
-      }
-    })
-
-    setTimeout(() => {
-      dispatch(removeNotif(id))
-    }, timeout)
-  }
+  return getDispatch(msg, 'danger', Warning, timeout)
 }
 
 const removeNotif = id => {

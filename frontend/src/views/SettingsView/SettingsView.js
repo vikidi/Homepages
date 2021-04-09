@@ -64,13 +64,13 @@ const SettingsView = () => {
   }
 
   return (
-    <ViewWrapper>
+    <ViewWrapper header footer fullMain>
       <GridContainer>
-        <Grid item xs={9}>
+        <Grid item md={9}>
           <BackgroundPaper>
             <GridContainer direction='column' vertical='stretch'>
 
-              <Typography variant="h2" gutterBottom>{t('SettingsView.title')}</Typography>
+              <Typography variant="h3" gutterBottom>{t('SettingsView.title')}</Typography>
               <Container maxWidth='sm'>
                 <Typography variant="subtitle1" display="block" gutterBottom>{t('SettingsView.description')}</Typography>
               </Container>

@@ -26,7 +26,7 @@ const CodeBlock = ({ lines }) => {
       {lines.map((l, i) => {
         return (
           <div key={i}>
-            <Typist cursor={cursorSettings}>
+            <Typist cursor={cursorSettings} avgTypingDelay={45}>
               {l.map((w, i) => <span key={i} style={{ color: w.color, whiteSpace: 'pre' }}>{w.text}</span>)}
             </Typist>
           </div>

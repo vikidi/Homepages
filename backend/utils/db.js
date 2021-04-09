@@ -43,7 +43,6 @@ mongoose.connect(url, options)
       const testController = require('../controllers/testController');
       testController.resetFunc();
     }
-    console.log('MongoDB is connected');
   })
   .catch((err) => {
     console.log(err);

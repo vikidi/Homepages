@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 5,
     padding: theme.spacing(4),
-    margin: theme.spacing(6),
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
 }))
 

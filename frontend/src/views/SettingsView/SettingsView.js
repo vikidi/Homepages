@@ -66,7 +66,7 @@ const SettingsView = () => {
   return (
     <ViewWrapper header footer fullMain>
       <GridContainer>
-        <Grid item md={9}>
+        <Grid item md={9} xs={12}>
           <BackgroundPaper>
             <GridContainer direction='column' vertical='stretch'>
 

@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Canvas, useFrame } from 'react-three-fiber'
 import { OrbitControls } from '@react-three/drei'
 import { Physics, useBox, usePlane } from '@react-three/cannon'
@@ -22,8 +22,6 @@ function Cube(props) {
   useFrame(() => {
     if (over) api.velocity.set(0, 1, 0)
   })
-
-  useEffect(() => api.velocity.subscribe((v) => console.log(v)), [])
 
   return (
     <mesh ref={ref}

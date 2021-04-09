@@ -12,8 +12,7 @@ import Footer from '../Footer/Footer'
 const useStyles = makeStyles(() => ({
   root: {
     marginTop: 'auto',
-    marginBottom: 'auto',
-    height: '100%'
+    marginBottom: 'auto'
   },
 }))
 

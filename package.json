@@ -46,7 +46,7 @@
     "concurrently": "6.0.0",
     "deadfile": "1.2.2",
     "depcheck": "1.4.0",
-    "eslint": "7.22.0"
+    "eslint": "7.23.0"
   },
   "dependencies": {
     "start-server-and-test": "1.12.0"

@@ -21,6 +21,7 @@ const MainView = lazy(() => import('./views/MainView/MainView'))
 const SettingsView = lazy(() => import('./views/SettingsView/SettingsView'))
 const FunStuffView = lazy(() => import('./views/FunStuffView/FunStuffView'))
 const GameView = lazy(() => import('./views/GameView/GameView'))
+const ErrorView = lazy(() => import('./views/ErrorView/ErrorView'))
 
 const App = () => {
   const d = useDispatch()
@@ -50,6 +51,7 @@ const App = () => {
             <Route path='/game' component={GameView} />
             <Route path='/funstuff' component={FunStuffView} />
             <Route path='/settings' component={SettingsView} />
+            <Route path='/errorview' component={ErrorView} />
             <Route path='/' component={MainView} />
           </Switch>
         </Suspense>

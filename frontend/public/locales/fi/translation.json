@@ -14,7 +14,15 @@
   },
   "ErrorView": {
     "title": "Jaahas... Ne sivut oli siinä",
-    "text": "Lausahda pari kirosanaa minun puolestani ja lataa sivu uudelleen."
+    "text": "Lausahda pari kirosanaa minun puolestani ja lataa sivu uudelleen.",
+    "Dialog": {
+      "title": "Virhe! Tyhjennä paikallinen muisti?",
+      "description": "Haluatko tyhjentää paikallisen muistin? Tämä saattaa ratkaista ongelman.\nTämä ei vaikuta muihin sivustoihin, mutta poistaa sinun asettamat henkilökohtaiset asetukset.",
+      "Button": {
+        "dont": "Ei, älä tyhjennä",
+        "clear": "Kyllä, tyhjennä ja päivitä"
+      }
+    }
   },
   "CodeBlockObj": {
     "Tags": {

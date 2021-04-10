@@ -14,7 +14,15 @@
   },
   "ErrorView": {
     "title": "Hmmph... My site has done gooft",
-    "text": "Please give few swear words on behalf of me and try hitting refresh."
+    "text": "Please give few swear words on behalf of me and try hitting refresh.",
+    "Dialog": {
+      "title": "Error! Clear local storage?",
+      "description": "Do you want to clear this sites local storage? This might solve the issue.\nIt does not affect other sites, but it removes your personal settings.",
+      "Button": {
+        "dont": "No, don't clear",
+        "clear": "Yes, clear and refresh"
+      }
+    }
   },
   "CodeBlockObj": {
     "Tags": {

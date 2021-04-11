@@ -2,14 +2,19 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcryptjs');
 
-const roles = require('./userRoles').roleList;
+const roleList = require('./userRoles').roleList;
+const defaultRole = require('./userRoles').lowestRole;
+
+const permissionList = require('./userPermissions').permissionList;
+const groupList = require('./userGroups').groupList;
 
 mongoose.set('useCreateIndex', true);
 
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    maxLength: 50
   },
   email: {
     type: String,
@@ -18,13 +23,40 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
-    minlength: 5
+    required: true
   },
   role: {
-    type: String,
+    type: [ String ],
     required: true,
-    enum: roles
+    enum: roleList,
+    default: [ defaultRole ]
+  },
+  permission: {
+    type: [ String ],
+    required: true,
+    enum: permissionList,
+    default: []
+  },
+  group: {
+    type: [ String ],
+    required: true,
+    enum: groupList,
+    default: []
+  },
+  signupDate: {
+    type: Date,
+    required: true,
+    default: Date.now(),
+    immutable: true
+  },
+  changes: {
+    type: [{
+      user: mongoose.ObjectId,
+      time: Date,
+      comment: String
+    }],
+    required: true,
+    default: []
   }
 });
 

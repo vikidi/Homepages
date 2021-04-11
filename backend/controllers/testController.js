@@ -1,6 +1,5 @@
 const User = require('../models/user');
-const Content = require('../models/content');
-const helper = require('../tests/test_helper');
+const userHelper = require('../tests/userHelper');
 
 const reset = async (req, res) => {
   await resetFunc();
@@ -8,12 +7,13 @@ const reset = async (req, res) => {
   res.status(204).end();
 };
 
-const resetFunc = async () => {
+const resetFunc = async (callback = null) => {
   await User.deleteMany({});
-  await User.insertMany(helper.initialUsers);
+  await User.insertMany(userHelper.initialUsers);
 
-  await Content.deleteMany({});
-  await Content.insertMany(helper.initialContents);
+  if (callback) {
+    callback();
+  }
 };
 
 module.exports = {

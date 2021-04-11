@@ -1,7 +1,6 @@
 const roles = {
-  player: 3,
-  leader: 6,
-  board: 9,
+  visitor: 3,
+  creator: 6,
   admin: 12
 };
 

@@ -38,10 +38,10 @@ if (MONGO_USERNAME === undefined || MONGO_PASSWORD === undefined || MONGO_AUTH_S
 }
 
 mongoose.connect(url, options)
-  .then(() => {
+  .then(async () => {
     if (process.env.NODE_ENV === 'test' && process.env.RESET_DB === 'true') {
       const testController = require('../controllers/testController');
-      testController.resetFunc();
+      await testController.resetFunc();
     }
   })
   .catch((err) => {

@@ -22,7 +22,16 @@ module.exports = {
           req.login(user, { session: false }, async (error) => {
             if (error) return next(error);
 
-            const body = { id: user.id, email: user.email, name: user.name, role: user.role };
+            const body = {
+              id: user.id,
+              email: user.email,
+              name: user.name,
+              role: user.role,
+              permission: user.permission,
+              group: user.group,
+              signupDate: user.signupDate
+            };
+
             const token = jwt.sign({ user: body }, process.env.SECRET);
 
             return res.json({ ...body, token });

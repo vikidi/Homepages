@@ -12,11 +12,11 @@ beforeAll((done) => {
   });
 });
 
-describe('/api/heartbeat', () => {
+describe('/heartbeat', () => {
   describe('GET', () => {
     test('Heartbeat is returned', async () => {
       await api
-        .get('/api/heartbeat')
+        .get('/heartbeat')
         .expect(200);
     }, 60000);
   });

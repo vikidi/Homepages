@@ -5,8 +5,6 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 
 const UserModel = require('../models/user');
 
-const defaultRole = require('../models/userRoles').lowestRole;
-
 passport.use(
   new JWTstrategy(
     {
@@ -36,7 +34,7 @@ passport.use(
 
     async (req, email, password, done) => {
       try {
-        const user = new UserModel({ email, password, name: req.body.name, role: defaultRole });
+        const user = new UserModel({ email, password, name: req.body.name });
         const savedUser = await user.save();
 
         return done(null, savedUser);

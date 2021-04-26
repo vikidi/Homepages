@@ -74,6 +74,7 @@
   "NavigationLinks": {
     "home": "Koti",
     "settings": "Asetukset",
-    "login": "Kirjaudu"
+    "login": "Kirjaudu",
+    "logout": "Ulos"
   }
 }

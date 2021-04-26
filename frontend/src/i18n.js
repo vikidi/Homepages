@@ -1,6 +1,8 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import Backend from 'i18next-http-backend'
+import ChainedBackend from 'i18next-chained-backend'
+import LocalStorageBackend from 'i18next-localstorage-backend'
+import HttpBackend from 'i18next-http-backend'
 
 import { getFromLS } from './utils/localStorage'
 import defaultLanguage from './utils/languageUtil'
@@ -9,19 +11,26 @@ import defaultLanguage from './utils/languageUtil'
 const startLang = getFromLS('selectedLanguage')
 
 i18n
-  .use(Backend)
+  .use(ChainedBackend)
   .use(initReactI18next)
   .init({
     lng: startLang ? startLang.short : defaultLanguage.short,
     fallbackLng: 'en',
-    debug: true, // TODO: Meaning?
+    debug: process.env.NODE_ENV === 'development' ? true : false,
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
-      allowMultiLoading: false // TODO: Meaning?
+      backends: [
+        LocalStorageBackend,  // Primary, local storage cache
+        HttpBackend           // Secondary, http fetch from server
+      ],
+      backendOptions: [{
+        expirationTime: 7 * 24 * 60 * 60 * 1000 // 7 days
+      }, {
+        loadPath: '/locales/{{lng}}/{{ns}}.json',
+        allowMultiLoading: false
+      }]
     },
     react: {
-      wait: true, // TODO: Meaning?
-      useSuspense: true // TODO: Meaning?
+      useSuspense: true
     }
   })
 

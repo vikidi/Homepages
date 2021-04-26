@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import { setToLS, getFromLS } from '../utils/localStorage'
 
 // TODO: Handle user token in axios defaults on login/logout/modification
@@ -19,6 +21,9 @@ export const initUser = () => {
     const user = getFromLS('loggedUser')
     if (user) {
 
+      // Set up token to axios headers
+      axios.defaults.headers.common['Authorization'] = user.token ?? ''
+
       // Set to store if there is user
       dispatch({
         type: 'SET_USER',
@@ -33,6 +38,9 @@ export const setUser = user => {
 
     // Set to local storage
     setToLS('loggedUser', user)
+
+    // Set up token to axios headers
+    axios.defaults.headers.common['Authorization'] = user ? user.token : ''
 
     // Set to store
     dispatch({

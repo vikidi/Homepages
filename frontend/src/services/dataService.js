@@ -11,7 +11,8 @@ const postData = async (url, data, options) => {
     .then(result => {
       return result.data
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err)
       return 'error'
     })
 }

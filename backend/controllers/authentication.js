@@ -35,7 +35,7 @@ module.exports = {
 
             const token = jwt.sign({ user: body }, process.env.SECRET);
 
-            return res.json({ token });
+            return res.json({ token: `Bearer ${token}` });
           }
           );
         }

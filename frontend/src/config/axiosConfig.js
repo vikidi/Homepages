@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'production') {
   axios.defaults.baseURL = 'https://api.villesaarinen.me'
 }
 else {
-  axios.defaults.baseURL = 'https://localhost:8080'
+  axios.defaults.baseURL = 'http://localhost:8080'
 }
 
 //axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;

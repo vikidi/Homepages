@@ -44,7 +44,7 @@ const LoginView = props => {
   const d = useDispatch()
 
   const submit = async (values) => {
-    const result = await postData('http://localhost:8080/auth/login', values)
+    const result = await postData('auth/login', values)
 
     if (result === 'error') {
       return

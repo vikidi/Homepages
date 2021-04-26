@@ -22,6 +22,7 @@ const SettingsView = lazy(() => import('./views/SettingsView/SettingsView'))
 const FunStuffView = lazy(() => import('./views/FunStuffView/FunStuffView'))
 const GameView = lazy(() => import('./views/GameView/GameView'))
 const ErrorView = lazy(() => import('./views/ErrorView/ErrorView'))
+const LoginView = lazy(() => import('./views/LoginView/LoginView'))
 
 const App = () => {
   const d = useDispatch()
@@ -48,6 +49,7 @@ const App = () => {
       <ErrorBoundary>
         <Suspense fallback={<CustomLoader />} >
           <Switch>
+            <Route path='/login' component={LoginView} />
             <Route path='/game' component={GameView} />
             <Route path='/funstuff' component={FunStuffView} />
             <Route path='/settings' component={SettingsView} />

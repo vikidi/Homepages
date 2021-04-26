@@ -34,6 +34,11 @@ passport.use(
 
     async (req, email, password, done) => {
       try {
+        if (!UserModel.isValidPassword(password)) {
+          // TODO: reasoning?
+          return done('Invalid password');
+        }
+
         const user = new UserModel({ email, password, name: req.body.name });
         const savedUser = await user.save();
 
@@ -62,7 +67,7 @@ passport.use(
           return done(null, false, { message: 'User not found' });
         }
 
-        const validate = await user.isValidPassword(password);
+        const validate = await user.isCorrectPassword(password);
 
         if (!validate) {
           return done(null, false, { message: 'Wrong Password' });

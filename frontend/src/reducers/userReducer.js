@@ -1,5 +1,8 @@
 import { setToLS, getFromLS } from '../utils/localStorage'
 
+// TODO: Handle user token in axios defaults on login/logout/modification
+// TODO: Refresh token on user modifications
+
 const userReducer = (state = null, action) => {
   switch (action.type) {
   case 'SET_USER':

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 
@@ -14,6 +15,7 @@ import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import HomeIcon from '@material-ui/icons/Home'
 import SettingsIcon from '@material-ui/icons/Settings'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 // My components
 import NavigationLink from '../NavigationLink/NavigationLink'
@@ -31,6 +33,8 @@ const useStyles = makeStyles(theme => ({
 const DrawerNavigation = () => {
   const classes = useStyles()
   const { t } = useTranslation()
+
+  const user = useSelector(store => store.user)
 
   const [open, setOpen] = useState(false)
 
@@ -55,6 +59,7 @@ const DrawerNavigation = () => {
       <Divider />
       <List>
         <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
+        {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
       </List>
     </div>
   )

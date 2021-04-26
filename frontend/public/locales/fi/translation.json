@@ -24,6 +24,12 @@
       }
     }
   },
+  "LoginView": {
+    "title": "Kirjautuminen",
+    "email": "Sähköposti",
+    "password": "Salasana",
+    "submit": "Kirjaudu"
+  },
   "CodeBlockObj": {
     "Tags": {
       "MyProfile": "Profiilini",
@@ -67,6 +73,7 @@
   },
   "NavigationLinks": {
     "home": "Koti",
-    "settings": "Asetukset"
+    "settings": "Asetukset",
+    "login": "Kirjaudu"
   }
 }

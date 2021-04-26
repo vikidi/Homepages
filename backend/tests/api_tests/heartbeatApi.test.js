@@ -1,13 +1,14 @@
-const supertest = require('supertest');
-const app = require('../../app');
+const helper = require('../testHelper');
 
 let server, api;
 
 beforeAll((done) => {
-  server = app.listen(4000, (err) => {
-    if (err) return done(err);
+  helper.initTestSetup((err, s, a) => {
+    if (err) done(err);
 
-    api = supertest.agent(server);
+    server = s;
+    api = a;
+
     done();
   });
 });

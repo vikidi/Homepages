@@ -5,6 +5,10 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 
+// Axios defaults, before any app settings
+// -> User settings (token, ...) get updated
+import './config/axiosConfig'
+
 // Own components
 import App from './App'
 import CustomLoader from './components/CustomLoader/CustomLoader'

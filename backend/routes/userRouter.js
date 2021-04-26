@@ -11,4 +11,9 @@ router.route('/')
     authorizationController.authorizeMin(roles.admin),
     userController.getUsers);
 
+router.route('/metadata')
+  .get(passport.authenticate('jwt', { session: false }),
+    authorizationController.authorizeMin(roles.admin),
+    userController.getUserMetadata);
+
 module.exports = router;

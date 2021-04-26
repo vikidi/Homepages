@@ -24,6 +24,12 @@
       }
     }
   },
+  "LoginView": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit"
+  },
   "CodeBlockObj": {
     "Tags": {
       "MyProfile": "MyProfile",
@@ -67,6 +73,7 @@
   },
   "NavigationLinks": {
     "home": "Home",
-    "settings": "Settings"
+    "settings": "Settings",
+    "login": "Login"
   }
 }

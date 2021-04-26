@@ -25,6 +25,7 @@ module.exports = {
             const body = {
               id: user.id,
               email: user.email,
+              nickname: user.nickname,
               name: user.name,
               role: user.role,
               permission: user.permission,
@@ -34,7 +35,7 @@ module.exports = {
 
             const token = jwt.sign({ user: body }, process.env.SECRET);
 
-            return res.json({ ...body, token });
+            return res.json({ token });
           }
           );
         }

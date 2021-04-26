@@ -13,7 +13,9 @@ const useStyles = makeStyles((/*theme*/) => ({
 /**
  * The only true button.
  */
-const BasicButton = ({ color, size, onClick, disabled, children }) => {
+const BasicButton = props => {
+  const { color, size, onClick, disabled, children, ...rest } = props
+
   const classes = useStyles()
 
   const styles = {
@@ -30,6 +32,7 @@ const BasicButton = ({ color, size, onClick, disabled, children }) => {
       onClick={onClick}
       disabled={disabled}
       variant='contained'
+      {...rest}
     >
 
       {children}
@@ -56,9 +59,6 @@ BasicButton.propTypes = {
 BasicButton.defaultProps = {
   color: 'primary',
   size: 'normal',
-  onClick: (event) => {
-    console.log('You have clicked me!', event.target)
-  },
   disabled: false
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles, useTheme } from '@material-ui/styles'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import cn from 'classnames'
 
 import IconButton from '@material-ui/core/IconButton'
 import Tooltip from '@material-ui/core/Tooltip'
@@ -17,6 +18,12 @@ const useStyles = makeStyles(theme => ({
     paddingRight: theme.spacing(6),
     paddingLeft: theme.spacing(6)
   },
+  button: {
+    margin: '0px',
+  },
+  lightButton: {
+    color: theme.palette.text.secondary
+  }
 }))
 
 const ThemeSelectorIcon = () => {
@@ -50,6 +57,7 @@ const ThemeSelectorIcon = () => {
     <>
       <Tooltip title={t('Components.ThemeSelIcon.tooltip')}>
         <IconButton
+          className={cn(classes.button, theme.name === 'light' ? classes.lightButton : null)}
           aria-haspopup='true'
           onClick={handleMenu}
           color='inherit'

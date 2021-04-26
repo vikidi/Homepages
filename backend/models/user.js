@@ -21,9 +21,15 @@ const UserSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
+  nickname: {
+    type: String,
+    maxlength: 20
+  },
   password: {
     type: String,
-    required: true
+    required: true,
+    maxLength: 60,
+    minlength: 60
   },
   role: {
     type: [ String ],
@@ -79,11 +85,19 @@ UserSchema.pre(
   }
 );
 
-UserSchema.methods.isValidPassword = async function(password) {
+UserSchema.methods.isCorrectPassword = async function(password) {
   const user = this;
   const compare = await bcrypt.compare(password, user.password);
 
   return compare;
+};
+
+UserSchema.statics.isValidPassword = async function(password) {
+  if (password.length > 18 || password.length < 8) {
+    return false;
+  }
+
+  return true;
 };
 
 UserSchema.plugin(uniqueValidator);

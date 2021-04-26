@@ -1,14 +1,17 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-
+import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 
 import ThemeSelectorIcon from '../ThemeSelectorIcon/ThemeSelectorIcon'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+import SettingsIcon from '@material-ui/icons/Settings'
 
 const useStyles = makeStyles((theme) => ({
   menu: {
@@ -20,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-
 const CustomLink = React.forwardRef((props, ref) => {
   // eslint-disable-next-line no-unused-vars
   const { navigate, ...rest } = props
@@ -29,11 +31,21 @@ const CustomLink = React.forwardRef((props, ref) => {
   return (<Button className={classes.link} ref={ref} {...rest}>{props.children}</Button>)
 })
 
+const CustomIconLink = React.forwardRef((props, ref) => {
+  // eslint-disable-next-line no-unused-vars
+  const { navigate, ...rest } = props
+
+  return (<IconButton ref={ref} {...rest}>{props.children}</IconButton>)
+})
+
 CustomLink.displayName = 'CustomLink'
+CustomIconLink.displayName = 'CustomIconLink'
 
 const OpenNavigation = () => {
   const classes = useStyles()
   const { t } = useTranslation()
+
+  const user = useSelector(store => store.user)
 
   return (
     <>
@@ -54,8 +66,9 @@ const OpenNavigation = () => {
 
         <Grid item>
           <Link to='/' component={CustomLink}>{t('NavigationLinks.home')}</Link>
-          <Link to='/settings' component={CustomLink}>{t('NavigationLinks.settings')}</Link>
+          <Link to='/settings' component={CustomIconLink}><SettingsIcon /></Link>
           <ThemeSelectorIcon />
+          {!user && <Link to='/login' component={CustomIconLink}><ExitToAppIcon /></Link>}
         </Grid>
       </Grid>
     </>

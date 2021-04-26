@@ -1,7 +1,9 @@
 const permissions = {
   read: 3,
-  edit: 6,
-  all: 10
+  create: 6,
+  update: 9,
+  delete: 12,
+  all: 15
 };
 
 const permissionList = Object.keys(permissions);

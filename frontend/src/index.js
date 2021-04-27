@@ -9,6 +9,9 @@ import { BrowserRouter } from 'react-router-dom'
 // -> User settings (token, ...) get updated
 import './config/axiosConfig'
 
+// Build version details
+import './config/versionConfig'
+
 // Own components
 import App from './App'
 import CustomLoader from './components/CustomLoader/CustomLoader'

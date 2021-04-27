@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
@@ -10,11 +10,17 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
+import Menu from '@material-ui/core/Menu'
+import Tooltip from '@material-ui/core/Tooltip'
 
-import ThemeSelectorIcon from '../ThemeSelectorIcon/ThemeSelectorIcon'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import SettingsIcon from '@material-ui/icons/Settings'
 import MeetingRoom from '@material-ui/icons/MeetingRoom'
+import AccountBox from '@material-ui/icons/AccountBox'
+
+// My components
+import NavigationLink from '../NavigationLink/NavigationLink'
+import NavigationButton from '../NavigationButton/NavigationButton'
 
 const useStyles = makeStyles((theme) => ({
   menu: {
@@ -51,8 +57,19 @@ const OpenNavigation = () => {
 
   const user = useSelector(store => store.user)
 
+  const [anchorEl, setAnchorEl] = useState(null)
+  const open = Boolean(anchorEl)
+
   const logout = () => {
     d(setUser(null))
+  }
+
+  const handleOpen = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
   }
 
   return (
@@ -74,10 +91,39 @@ const OpenNavigation = () => {
 
         <Grid item>
           <Link to='/' component={CustomLink}>{t('NavigationLinks.home')}</Link>
-          <Link to='/settings' component={CustomIconLink}><SettingsIcon /></Link>
-          <ThemeSelectorIcon />
-          {!user && <Link to='/login' component={CustomIconLink}><ExitToAppIcon /></Link>}
-          {user && <IconButton type='link' onClick={logout}><MeetingRoom /></IconButton>}
+          <Tooltip title={t('OpenNavigation.SettingDrop.tooltip')}>
+            <IconButton
+              aria-haspopup='true'
+              onClick={handleOpen}
+              color='inherit'
+            >
+              <AccountBox />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={open}
+            onClose={handleClose}
+          >
+            <div>
+              <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
+            </div>
+            <div>
+              {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
+            </div>
+            <div>
+              {user && <NavigationButton keyProp='logout' onClick={logout} icon={<MeetingRoom />} text={t('NavigationLinks.logout')} />}
+            </div>
+          </Menu>
         </Grid>
       </Grid>
     </>

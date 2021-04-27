@@ -76,5 +76,10 @@
     "settings": "Asetukset",
     "login": "Kirjaudu",
     "logout": "Ulos"
+  },
+  "OpenNavigation": {
+    "SettingDrop": {
+      "tooltip": "Käyttäjäasetukset"
+    }
   }
 }

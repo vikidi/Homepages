@@ -14,11 +14,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const ForwardNavLink = React.forwardRef((props, ref) => (
+  <Link {...props} innerRef={ref} />
+))
+ForwardNavLink.displayName = 'ForwardNavLink'
+
 const NavigationLink = ({ keyProp, to, icon, text }) => {
   const classes = useStyles()
 
   return (
-    <ListItem button key={keyProp} component={Link} to={to} className={classes.link}>
+    <ListItem button key={keyProp} component={ForwardNavLink} to={to} className={classes.link}>
       <ListItemIcon>{icon}</ListItemIcon>
       <ListItemText primary={text} />
     </ListItem>

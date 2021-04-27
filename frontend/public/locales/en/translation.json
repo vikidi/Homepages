@@ -76,5 +76,10 @@
     "settings": "Settings",
     "login": "Login",
     "logout": "Logout"
+  },
+  "OpenNavigation": {
+    "SettingDrop": {
+      "tooltip": "User Settings"
+    }
   }
 }

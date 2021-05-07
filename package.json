@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/vikidi/Homepages#readme",
   "devDependencies": {
-    "codecov": "3.8.1",
+    "codecov": "3.8.2",
     "concurrently": "6.0.0",
     "deadfile": "1.2.2",
     "depcheck": "1.4.0",

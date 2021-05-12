@@ -10,7 +10,7 @@
     "@react-three/drei": "3.11.0",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
-    "@testing-library/user-event": "12.8.3",
+    "@testing-library/user-event": "13.1.9",
     "classnames": "^2.2.6",
     "eslint-plugin-cypress": "2.11.2",
     "gsap": "3.6.0",

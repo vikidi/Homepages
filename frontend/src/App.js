@@ -53,7 +53,7 @@ const App = () => {
             <Route path='/game' component={GameView} />
             <Route path='/funstuff' component={FunStuffView} />
             <Route path='/settings' component={SettingsView} />
-            <Route path='/errorview' component={ErrorView} />
+            <Route path='/_errorview' component={ErrorView} />
             <Route path='/' component={MainView} />
           </Switch>
         </Suspense>

@@ -1,5 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
+const logger = require('./logger');
 
 const {
   MONGO_USERNAME,
@@ -43,9 +44,11 @@ mongoose.connect(url, options)
       const testController = require('../controllers/testController');
       await testController.resetFunc();
     }
+
+    logger.info('Connected to database.');
   })
   .catch((err) => {
-    console.log(err);
+    logger.error(err);
   });
 
 const disconnect = () => {

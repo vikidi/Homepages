@@ -30,7 +30,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   quoteText: {
-    textAlign: 'center'
+    textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.7rem'
+    }
   },
   quoteStars: {
     display: 'inline',
@@ -66,7 +69,7 @@ const MainView = () => {
     <ViewWrapper footer={true} fullMain={true}>
       <GridContainer horizontal='center'>
 
-        <Grid item sm={6}>
+        <Grid item lg={6} md={5} sm={4} xs={12}>
           <GridContainer horizontal='center' direction='column'>
 
             <Grid item className={classes.profilePicContainer}>
@@ -132,7 +135,7 @@ const MainView = () => {
           </GridContainer>
         </Grid>
 
-        <Grid item sm={6}>
+        <Grid item lg={6} md={7} sm={8} xs={12}>
           <CodeBlock lines={codeBlock} />
         </Grid>
 

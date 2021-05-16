@@ -45,13 +45,14 @@ mongoose.connect(url, options)
       await testController.resetFunc();
     }
 
-    logger.info('Connected to database.');
+    logger.info('Connected to database');
   })
   .catch((err) => {
     logger.error(err);
   });
 
 const disconnect = () => {
+  logger.info('Disconnected from database');
   mongoose.disconnect();
 };
 

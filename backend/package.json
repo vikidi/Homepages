@@ -32,9 +32,12 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "express-mongo-sanitize": "^2.0.0",
+    "express-rate-limit": "^5.2.6",
     "express-sanitizer": "^1.0.5",
+    "express-slow-down": "^1.4.0",
     "helmet": "^4.3.1",
     "http": "0.0.1-security",
+    "ioredis": "^4.27.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.8",
     "mongoose-unique-validator": "^2.0.3",
@@ -43,6 +46,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "pm2": "^4.5.3",
+    "rate-limit-redis": "^2.1.0",
     "winston": "^3.3.3",
     "winston-logzio": "^5.1.2"
   }

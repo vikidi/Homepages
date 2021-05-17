@@ -11,6 +11,7 @@ const groupList = require('./userGroups').groupList;
 mongoose.set('useCreateIndex', true);
 
 const UserSchema = new mongoose.Schema({
+  // User details
   name: {
     type: String,
     required: true,
@@ -28,9 +29,13 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+
+    // Bcrypt hash + salt is always 60
     maxLength: 60,
     minlength: 60
   },
+
+  // Permissions
   role: {
     type: [ String ],
     required: true,
@@ -49,12 +54,44 @@ const UserSchema = new mongoose.Schema({
     enum: groupList,
     default: []
   },
+
+  // Required actions
+  passChangeReq: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  admittingReq: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  emailConfReq: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+
+  // Meta data
   signupDate: {
     type: Date,
     required: true,
     default: Date.now(),
     immutable: true
   },
+  admittingDate: {
+    type: Date,
+    required: false
+  },
+  passChangeDate: {
+    type: Date,
+    required: false
+  },
+  emailConfDate: {
+    type: Date,
+    required: false
+  },
+  /* Changes might generate unnecessary bloat
   changes: {
     type: [{
       user: mongoose.ObjectId,
@@ -63,13 +100,16 @@ const UserSchema = new mongoose.Schema({
     }],
     required: true,
     default: []
-  }
+  }*/
 });
 
 UserSchema.set('toJSON', {
   transform: (document, returnedObject) => {
+    // Change _id -> id
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
+
+    // Never return password or version number
     delete returnedObject.__v;
     delete returnedObject.password;
   }

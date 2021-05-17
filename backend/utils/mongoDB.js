@@ -1,4 +1,3 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
 const logger = require('./logger');
 
@@ -45,14 +44,14 @@ mongoose.connect(url, options)
       await testController.resetFunc();
     }
 
-    logger.info('Connected to database');
+    logger.info('Connected to Mongo database');
   })
   .catch((err) => {
     logger.error(err);
   });
 
 const disconnect = () => {
-  logger.info('Disconnected from database');
+  logger.info('Disconnected from Mongo database');
   mongoose.disconnect();
 };
 

@@ -9,16 +9,19 @@ const bodyParser = require('body-parser');
 
 const middleware = require('./utils/middleware');
 
-const db = require('./utils/db');
+const mongodb = require('./utils/mongoDB');
+const redisdb = require('./utils/redisDB');
 
 // Close connections on shutdown
 process.on('exit', function() {
-  db.disconnect();
+  mongodb.disconnect();
+  redisdb.disconnect();
 });
 
 // Close connection on app termination
 process.on('SIGINT', function() {
-  db.disconnect();
+  mongodb.disconnect();
+  redisdb.disconnect();
 });
 
 const app = express();

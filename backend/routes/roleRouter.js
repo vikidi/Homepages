@@ -2,7 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 
 const roleController = require('../controllers/roleController');
-const authorizationController = require('../controllers/authorization');
+const authorizationController = require('../auth/authorization');
 
 const roles = require('../models/userRoles').roles;
 

@@ -1,9 +1,9 @@
 const Redis = require('ioredis');
-const logger = require('./logger');
+const logger = require('../utils/logger');
 
 const clients = new Map();
 
-const getClient = (dbInd = 0) => {
+const getClient = (dbInd) => {
   if (clients.has(dbInd)) {
     return clients.get(dbInd);
   }

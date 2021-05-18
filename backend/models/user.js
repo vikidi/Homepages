@@ -28,11 +28,7 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
-
-    // Bcrypt hash + salt is always 60
-    maxLength: 60,
-    minlength: 60
+    required: true
   },
 
   // Permissions

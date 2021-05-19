@@ -1,0 +1,43 @@
+# Extension configuration for development docker-compose
+
+version: "3.9"
+
+services:
+
+  mongo:
+    env_file: 
+      - ./database/mongo/.env.docker.dev
+
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+    env_file: 
+      - ./database/mongo-express/.env.docker.dev
+    networks:
+      - devnetwork
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    environment: 
+      CHOKIDAR_USEPOLLING: "true"
+    env_file: 
+      - ./backend/.env.docker.dev
+    command: 
+      npm run start:dev
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    stdin_open: true
+    tty: true
+    environment: 
+      CHOKIDAR_USEPOLLING: "true"
+    env_file: 
+      - ./frontend/.env.docker.dev
+    command: 
+      npm start

@@ -37,6 +37,8 @@ if (MONGO_USERNAME === undefined || MONGO_PASSWORD === undefined || MONGO_AUTH_S
   }
 }
 
+console.log(url); // DEBUG
+
 mongoose.connect(url, options)
   .then(async () => {
     if (process.env.NODE_ENV === 'test' && process.env.RESET_DB === 'true') {

@@ -31,7 +31,7 @@ const getClient = (dbInd) => {
 
   clients.set(dbInd, client);
 
-  logger.info('Connected to Redis database ' + dbInd);
+  client.on('ready', () => logger.info('Connected to Redis database ' + dbInd));
 
   return client;
 };

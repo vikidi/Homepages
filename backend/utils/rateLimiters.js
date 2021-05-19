@@ -4,7 +4,7 @@ const rateLimit = require('express-rate-limit');
 const redisDB = require('../database/redisDB');
 
 const speedClient = redisDB.getClient(0);
-const rateClient = redisDB.getClient(0); // TODO: Change to 1 when using docker
+const rateClient = redisDB.getClient(1);
 
 const getSpeedLimiter = () => {
   // Rate limiting only in production

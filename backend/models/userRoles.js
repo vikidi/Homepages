@@ -1,6 +1,6 @@
 const roles = {
-  visitor: 3,
-  creator: 6,
+  viewer: 3,
+  editor: 6,
   admin: 12
 };
 

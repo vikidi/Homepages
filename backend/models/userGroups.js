@@ -1,7 +1,9 @@
 const groupList = [
   'nmksv',
   'ttlk',
-  'kaverit'
+  'friends',
+  'family',
+  'all' // Admin type group
 ];
 
 module.exports = { groupList };

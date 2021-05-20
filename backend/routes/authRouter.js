@@ -22,7 +22,7 @@ router.route('/login')
 
 router.route('/secret')
   .get(passport.authenticate('jwt', { session: false }),
-    authorizationController.authorizeExact(roles.admin),
+    authorizationController.authorizeGroup({ 'ttlk': { permission: 'read', role: roles.editor } }),
     authenticationController.test);
 
 module.exports = router;

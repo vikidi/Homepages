@@ -8,7 +8,7 @@ const roles = require('../models/userRoles').roles;
 
 router.route('/')
   .get(passport.authenticate('jwt', { session: false }),
-    authorizationController.authorizeMin(roles.admin),
+    authorizationController.authorizeRole(roles.admin),
     groupController.getGroups);
 
 module.exports = router;

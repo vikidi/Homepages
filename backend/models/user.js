@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const roleList = require('./userRoles').roleList;
 const defaultRole = require('./userRoles').lowestRole;
 
-const permissionList = require('./userPermissions').permissionList;
 const groupList = require('./userGroups').groupList;
 
 mongoose.set('useCreateIndex', true);
@@ -33,22 +32,20 @@ const UserSchema = new mongoose.Schema({
 
   // Permissions
   role: {
-    type: [ String ],
+    type: String,
     required: true,
     enum: roleList,
-    default: [ defaultRole ]
+    default: defaultRole
   },
-  permission: {
-    type: [ String ],
-    required: true,
-    enum: permissionList,
-    default: []
-  },
-  group: {
-    type: [ String ],
+  groups: {
+    type: Map,
+    of: {
+      permissions: [ String ],
+      role: String
+    },
     required: true,
     enum: groupList,
-    default: []
+    default: { }
   },
 
   // Required actions

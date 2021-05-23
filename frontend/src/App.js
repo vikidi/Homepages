@@ -19,13 +19,16 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 // Portfolio Views
 const MainView = lazy(() => import('./views/MainView/MainView'))
 const SettingsView = lazy(() => import('./views/SettingsView/SettingsView'))
-const FunStuffView = lazy(() => import('./views/FunStuffView/FunStuffView'))
-const GameView = lazy(() => import('./views/GameView/GameView'))
 const ErrorView = lazy(() => import('./views/ErrorView/ErrorView'))
 const LoginView = lazy(() => import('./views/LoginView/LoginView'))
+const ProjectListView = lazy(() => import('./views/ProjectListView/ProjectListView'))
+const ContactView = lazy(() => import('./views/ContactView/ContactView'))
 
 // Fun Side Views
 const FunSideLandingView = lazy(() => import('./views/FunSideLandingView/FunSideLandingView'))
+const FunStuffView = lazy(() => import('./views/FunStuffView/FunStuffView'))
+const GameView = lazy(() => import('./views/GameView/GameView'))
+const AdminPanelView = lazy(() => import('./views/AdminPanelView/AdminPanelView'))
 
 const App = () => {
   const d = useDispatch()
@@ -54,9 +57,12 @@ const App = () => {
           <Switch>
             <Route path='/funside/game' component={GameView} />
             <Route path='/funside/funstuff' component={FunStuffView} />
-            <Route path='/funside' component={FunSideLandingView} />
+            <Route path='/adminpanel' component={AdminPanelView} />
             <Route path='/login' component={LoginView} />
+            <Route path='/funside' component={FunSideLandingView} />
             <Route path='/settings' component={SettingsView} />
+            <Route path='/projects' component={ProjectListView} />
+            <Route path='/contact' component={ContactView} />
             <Route path='/_errorview' component={ErrorView} />
             <Route path='/' component={MainView} />
           </Switch>

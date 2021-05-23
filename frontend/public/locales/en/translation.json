@@ -53,6 +53,7 @@
     "Ongoing": "Ongoing",
     "AReady": "Almost ready",
     "SWE": "Software Engineering",
+    "op": "ECTS",
     "PE": "Power Electronics",
     "HobbiesText": "Volleyball | Coding | Gym"
   },
@@ -76,6 +77,9 @@
     "settings": "Settings",
     "login": "Login",
     "logout": "Logout",
+    "projects": "Projects",
+    "contact": "Contact",
+    "adminPanel": "Admin Panel",
     "funSide": "Funside",
     "portfolioSide": "Portfolio"
   },

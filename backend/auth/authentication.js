@@ -25,19 +25,15 @@ module.exports = {
             // TODO: more or less?
             const body = {
               id: user.id,
-              email: user.email,
-              nickname: user.nickname,
-              name: user.name,
               role: user.role,
-              groups: user.groups,
-              signupDate: user.signupDate
+              groups: user.groups
             };
 
             console.log(body);
 
             const token = jwt.sign({ user: body }, process.env.SECRET);
 
-            return res.json({ token: `Bearer ${token}` });
+            return res.json({ ...body, token: `Bearer ${token}` });
           }
           );
         }

@@ -53,6 +53,7 @@
     "Ongoing": "Menossa",
     "AReady": "Lähes valmis",
     "SWE": "Ohjelmistosunnittelu",
+    "op": "op",
     "PE": "Tehoelektroniikka",
     "HobbiesText": "Lentopallo | Koodaus | Sali"
   },
@@ -76,6 +77,9 @@
     "settings": "Asetukset",
     "login": "Kirjaudu",
     "logout": "Ulos",
+    "projects": "Projektit",
+    "contact": "Yhteystiedot",
+    "adminPanel": "Admin Paneeli",
     "funSide": "Hupipuoli",
     "portfolioSide": "Portfolio"
   },

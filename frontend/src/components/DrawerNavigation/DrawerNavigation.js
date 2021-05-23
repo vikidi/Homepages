@@ -21,6 +21,9 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import MeetingRoom from '@material-ui/icons/MeetingRoom'
 import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt'
+import Contacts from '@material-ui/icons/Contacts'
+import Description from '@material-ui/icons/Description'
+import SettingsOverscanIcon from '@material-ui/icons/SettingsOverscan'
 
 // My components
 import NavigationLink from '../NavigationLink/NavigationLink'
@@ -70,6 +73,9 @@ const DrawerNavigation = ({ headerType }) => {
     >
       <List>
         <NavigationLink keyProp='home' to='/' icon={<HomeIcon />} text={t('NavigationLinks.home')} />
+        <NavigationLink keyProp='projects' to='/projects' icon={<Description />} text={t('NavigationLinks.projects')} />
+        <NavigationLink keyProp='contact' to='/contact' icon={<Contacts />} text={t('NavigationLinks.contact')} />
+        <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
       </List>
     </div>
   )
@@ -83,7 +89,7 @@ const DrawerNavigation = ({ headerType }) => {
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}>
           <List>
-            <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
+            {user && user.role === 'admin' && <NavigationLink keyProp='adminpanel' to='/adminpanel' icon={<SettingsOverscanIcon />} text={t('NavigationLinks.adminPanel')} />}
             {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
             {user && <NavigationButton keyProp='logout' onClick={logout} icon={<MeetingRoom />} text={t('NavigationLinks.logout')} />}
           </List>

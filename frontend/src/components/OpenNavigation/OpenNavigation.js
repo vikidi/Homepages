@@ -13,6 +13,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import Tooltip from '@material-ui/core/Tooltip'
+import Divider from '@material-ui/core/Divider'
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import SettingsIcon from '@material-ui/icons/Settings'
@@ -32,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1)
   },
   linkMargin: {
+    margin: theme.spacing(1),
+    alignSelf: 'center'
+  },
+  divider: {
     margin: theme.spacing(1)
   }
 }))
@@ -80,6 +85,8 @@ const OpenNavigation = ({ headerType }) => {
     return (
       <>
         <Link to='/' component={CustomLink}>{t('NavigationLinks.home')}</Link>
+        <Link to='/projects' component={CustomLink}>{t('NavigationLinks.projects')}</Link>
+        <Link to='/contact' component={CustomLink}>{t('NavigationLinks.contact')}</Link>
         <Tooltip title={t('OpenNavigation.SettingDrop.tooltip')}>
           <Link to='/settings' component={CustomIconLink}><SettingsIcon /></Link>
         </Tooltip>
@@ -90,6 +97,7 @@ const OpenNavigation = ({ headerType }) => {
   const funNav = () => {
     return (
       <>
+        {user && user.role === 'admin' && <Link to='/adminpanel' component={CustomLink}>{t('NavigationLinks.adminPanel')}</Link>}
         <Tooltip title={t('OpenNavigation.SettingDrop.tooltip')}>
           <IconButton
             aria-haspopup='true'
@@ -113,9 +121,6 @@ const OpenNavigation = ({ headerType }) => {
           open={open}
           onClose={handleClose}
         >
-          <div>
-            <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
-          </div>
           <div>
             {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
           </div>
@@ -145,13 +150,16 @@ const OpenNavigation = ({ headerType }) => {
         <div className={classes.grow} />
 
         <Grid item>
-          {headerType === 'portfolio' ? portfolioNav() : funNav()}
-          <Link to={headerType === 'portfolio' ? '/funside' : '/'}
-            className={classes.linkMargin}>
-            {headerType === 'portfolio'
-              ? t('NavigationLinks.funSide')
-              : t('NavigationLinks.portfolioSide')}
-          </Link>
+          <Grid container>
+            {headerType === 'portfolio' ? portfolioNav() : funNav()}
+            <Divider orientation="vertical" flexItem className={classes.divider} />
+            <Link to={headerType === 'portfolio' ? '/funside' : '/'}
+              className={classes.linkMargin}>
+              {headerType === 'portfolio'
+                ? t('NavigationLinks.funSide')
+                : t('NavigationLinks.portfolioSide')}
+            </Link>
+          </Grid>
         </Grid>
       </Grid>
     </>

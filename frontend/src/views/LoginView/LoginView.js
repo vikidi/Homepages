@@ -52,7 +52,7 @@ const LoginView = props => {
 
     d(setUser(result))
 
-    window.location.assign(window.location.origin)
+    window.location.assign(window.location.origin + '/funside')
   }
 
   return (

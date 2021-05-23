@@ -134,7 +134,7 @@ const CodeBlockObj = (theme, t) => {
         color: theme.palette.text.secondary
       },
       {
-        text: ` ${t('CodeBlockObj.SWE')} (50 op) `,
+        text: ` ${t('CodeBlockObj.SWE')} (50 ${t('CodeBlockObj.op')}) `,
         color: theme.palette.text.primary
       },
       {

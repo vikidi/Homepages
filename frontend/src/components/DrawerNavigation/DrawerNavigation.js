@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
+import PropTypes from 'prop-types'
 
 import { setUser } from '../../reducers/userReducer'
 
@@ -10,7 +11,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import IconButton from '@material-ui/core/IconButton'
 import List from '@material-ui/core/List'
 import Grid from '@material-ui/core/Grid'
-import Divider from '@material-ui/core/Divider'
+//import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
 
 // Icons
@@ -34,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DrawerNavigation = () => {
+const DrawerNavigation = ({ headerType }) => {
   const classes = useStyles()
   const { t } = useTranslation()
   const d = useDispatch()
@@ -55,7 +56,7 @@ const DrawerNavigation = () => {
     d(setUser(null))
   }
 
-  const list = () => (
+  const portfolioList = () => (
     <div
       className={classes.list}
       role="presentation"
@@ -65,14 +66,26 @@ const DrawerNavigation = () => {
       <List>
         <NavigationLink keyProp='home' to='/' icon={<HomeIcon />} text={t('NavigationLinks.home')} />
       </List>
-      <Divider />
-      <List>
-        <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
-        {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
-        {user && <NavigationButton keyProp='logout' onClick={logout} icon={<MeetingRoom />} text={t('NavigationLinks.logout')} />}
-      </List>
     </div>
   )
+
+  const funList = () => {
+    return (
+      <>
+        <div
+          className={classes.list}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}>
+          <List>
+            <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
+            {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
+            {user && <NavigationButton keyProp='logout' onClick={logout} icon={<MeetingRoom />} text={t('NavigationLinks.logout')} />}
+          </List>
+        </div>
+      </>
+    )
+  }
 
   return (
     <>
@@ -103,11 +116,19 @@ const DrawerNavigation = () => {
           onClose={toggleDrawer(false)}
           onOpen={toggleDrawer(true)}
         >
-          {list()}
+          {headerType === 'portfolio' ? portfolioList() : funList()}
         </SwipeableDrawer>
       </Grid>
     </>
   )
+}
+
+DrawerNavigation.propTypes = {
+  headerType: PropTypes.oneOf(['portfolio', 'funside'])
+}
+
+DrawerNavigation.defaultProps = {
+  headerType: 'portfolio'
 }
 
 export default DrawerNavigation

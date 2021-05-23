@@ -19,22 +19,9 @@ const useStyles = makeStyles(() => ({
 const ViewWrapper = ({ header, headerType, footer, fullMain, children }) => {
   const classes = useStyles()
 
-  let headerJSX = null
-  switch (headerType) {
-  case 'portfolio':
-    headerJSX = <Navigation />
-    break
-  case 'funside':
-    headerJSX = <Navigation /> // TODO:
-    break
-  default:
-    headerJSX = <Navigation />
-    break
-  }
-
   return (
     <>
-      {header && headerJSX}
+      {header && <Navigation headerType={headerType} />}
       <Container className={fullMain ? classes.root : null} component='main'>
         {children}
       </Container>

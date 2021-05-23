@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 // Material UI components
 import AppBar from '@material-ui/core/AppBar'
@@ -8,7 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import DrawerNavigation from '../DrawerNavigation/DrawerNavigation'
 import OpenNavigation from '../OpenNavigation/OpenNavigation'
 
-const Navigation = () => {
+const Navigation = ({ headerType }) => {
   const breakpoint = 620
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -22,11 +23,21 @@ const Navigation = () => {
     <AppBar position='static' color='transparent'>
       <Toolbar>
 
-        {windowWidth > breakpoint ? <OpenNavigation /> : <DrawerNavigation />}
+        {windowWidth > breakpoint
+          ? <OpenNavigation headerType={headerType} />
+          : <DrawerNavigation headerType={headerType} />}
 
       </Toolbar>
     </AppBar>
   )
+}
+
+Navigation.propTypes = {
+  headerType: PropTypes.oneOf(['portfolio', 'funside'])
+}
+
+Navigation.defaultProps = {
+  headerType: 'portfolio'
 }
 
 export default Navigation

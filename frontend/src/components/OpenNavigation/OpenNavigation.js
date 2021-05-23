@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { setUser } from '../../reducers/userReducer'
 
@@ -50,7 +51,7 @@ const CustomIconLink = React.forwardRef((props, ref) => {
 CustomLink.displayName = 'CustomLink'
 CustomIconLink.displayName = 'CustomIconLink'
 
-const OpenNavigation = () => {
+const OpenNavigation = ({ headerType }) => {
   const classes = useStyles()
   const { t } = useTranslation()
   const d = useDispatch()
@@ -72,6 +73,54 @@ const OpenNavigation = () => {
     setAnchorEl(null)
   }
 
+  const portfolioNav = () => {
+    return (
+      <>
+        <Link to='/' component={CustomLink}>{t('NavigationLinks.home')}</Link>
+      </>
+    )
+  }
+
+  const funNav = () => {
+    return (
+      <>
+        <Tooltip title={t('OpenNavigation.SettingDrop.tooltip')}>
+          <IconButton
+            aria-haspopup='true'
+            onClick={handleOpen}
+            color='inherit'
+          >
+            <AccountBox />
+          </IconButton>
+        </Tooltip>
+        <Menu
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={open}
+          onClose={handleClose}
+        >
+          <div>
+            <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
+          </div>
+          <div>
+            {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
+          </div>
+          <div>
+            {user && <NavigationButton keyProp='logout' onClick={logout} icon={<MeetingRoom />} text={t('NavigationLinks.logout')} />}
+          </div>
+        </Menu>
+      </>
+    )
+  }
+
   return (
     <>
       <Grid
@@ -90,44 +139,19 @@ const OpenNavigation = () => {
         <div className={classes.grow} />
 
         <Grid item>
-          <Link to='/' component={CustomLink}>{t('NavigationLinks.home')}</Link>
-          <Tooltip title={t('OpenNavigation.SettingDrop.tooltip')}>
-            <IconButton
-              aria-haspopup='true'
-              onClick={handleOpen}
-              color='inherit'
-            >
-              <AccountBox />
-            </IconButton>
-          </Tooltip>
-          <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={open}
-            onClose={handleClose}
-          >
-            <div>
-              <NavigationLink keyProp='settings' to='/settings' icon={<SettingsIcon />} text={t('NavigationLinks.settings')} />
-            </div>
-            <div>
-              {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
-            </div>
-            <div>
-              {user && <NavigationButton keyProp='logout' onClick={logout} icon={<MeetingRoom />} text={t('NavigationLinks.logout')} />}
-            </div>
-          </Menu>
+          {headerType === 'portfolio' ? portfolioNav() : funNav()}
         </Grid>
       </Grid>
     </>
   )
+}
+
+OpenNavigation.propTypes = {
+  headerType: PropTypes.oneOf(['portfolio', 'funside'])
+}
+
+OpenNavigation.defaultProps = {
+  headerType: 'portfolio'
 }
 
 export default OpenNavigation

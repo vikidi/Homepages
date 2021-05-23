@@ -19,13 +19,13 @@ const ForwardNavLink = React.forwardRef((props, ref) => (
 ))
 ForwardNavLink.displayName = 'ForwardNavLink'
 
-const NavigationLink = ({ keyProp, to, icon, text }) => {
+const NavigationLink = ({ keyProp, to, icon, text, textClass }) => {
   const classes = useStyles()
 
   return (
     <ListItem button key={keyProp} component={ForwardNavLink} to={to} className={classes.link}>
       <ListItemIcon>{icon}</ListItemIcon>
-      <ListItemText primary={text} />
+      <ListItemText primary={text} className={textClass} />
     </ListItem>
   )
 }
@@ -41,7 +41,10 @@ NavigationLink.propTypes = {
   icon: PropTypes.node,
 
   /** String to display */
-  text: PropTypes.string
+  text: PropTypes.string,
+
+  /** Text class property */
+  textClass: PropTypes.string
 }
 
 export default NavigationLink

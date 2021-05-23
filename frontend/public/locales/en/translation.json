@@ -75,7 +75,9 @@
     "home": "Home",
     "settings": "Settings",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "funSide": "Funside",
+    "portfolioSide": "Portfolio"
   },
   "OpenNavigation": {
     "SettingDrop": {

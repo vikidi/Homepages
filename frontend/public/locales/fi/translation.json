@@ -75,7 +75,9 @@
     "home": "Koti",
     "settings": "Asetukset",
     "login": "Kirjaudu",
-    "logout": "Ulos"
+    "logout": "Ulos",
+    "funSide": "Hupipuoli",
+    "portfolioSide": "Portfolio"
   },
   "OpenNavigation": {
     "SettingDrop": {

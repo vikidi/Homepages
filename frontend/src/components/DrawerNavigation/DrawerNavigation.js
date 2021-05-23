@@ -11,7 +11,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import IconButton from '@material-ui/core/IconButton'
 import List from '@material-ui/core/List'
 import Grid from '@material-ui/core/Grid'
-//import Divider from '@material-ui/core/Divider'
+import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
 
 // Icons
@@ -20,6 +20,7 @@ import HomeIcon from '@material-ui/icons/Home'
 import SettingsIcon from '@material-ui/icons/Settings'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import MeetingRoom from '@material-ui/icons/MeetingRoom'
+import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt'
 
 // My components
 import NavigationLink from '../NavigationLink/NavigationLink'
@@ -32,6 +33,10 @@ const useStyles = makeStyles(theme => ({
   menu: {
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(1)
+  },
+  funsideLink: {
+    color: theme.palette.text.secondary,
+    textDecoration: 'underline'
   }
 }))
 
@@ -117,6 +122,13 @@ const DrawerNavigation = ({ headerType }) => {
           onOpen={toggleDrawer(true)}
         >
           {headerType === 'portfolio' ? portfolioList() : funList()}
+          <Divider />
+          <NavigationLink keyProp='sideChose' to={headerType === 'portfolio' ? '/funside' : '/'}
+            textClass={classes.funsideLink}
+            icon={<ArrowRightAlt />}
+            text={headerType === 'portfolio'
+              ? t('NavigationLinks.funSide')
+              : t('NavigationLinks.portfolioSide')} />
         </SwipeableDrawer>
       </Grid>
     </>

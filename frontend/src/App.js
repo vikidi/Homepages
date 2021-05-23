@@ -16,13 +16,16 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import CustomLoader from './components/CustomLoader/CustomLoader'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
-// Views
+// Portfolio Views
 const MainView = lazy(() => import('./views/MainView/MainView'))
 const SettingsView = lazy(() => import('./views/SettingsView/SettingsView'))
 const FunStuffView = lazy(() => import('./views/FunStuffView/FunStuffView'))
 const GameView = lazy(() => import('./views/GameView/GameView'))
 const ErrorView = lazy(() => import('./views/ErrorView/ErrorView'))
 const LoginView = lazy(() => import('./views/LoginView/LoginView'))
+
+// Fun Side Views
+const FunSideLandingView = lazy(() => import('./views/FunSideLandingView/FunSideLandingView'))
 
 const App = () => {
   const d = useDispatch()
@@ -49,9 +52,10 @@ const App = () => {
       <ErrorBoundary>
         <Suspense fallback={<CustomLoader />} >
           <Switch>
+            <Route path='/funside/game' component={GameView} />
+            <Route path='/funside/funstuff' component={FunStuffView} />
+            <Route path='/funside' component={FunSideLandingView} />
             <Route path='/login' component={LoginView} />
-            <Route path='/game' component={GameView} />
-            <Route path='/funstuff' component={FunStuffView} />
             <Route path='/settings' component={SettingsView} />
             <Route path='/_errorview' component={ErrorView} />
             <Route path='/' component={MainView} />

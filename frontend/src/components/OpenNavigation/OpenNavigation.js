@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textTransform: 'capitalize',
     margin: theme.spacing(1)
+  },
+  linkMargin: {
+    margin: theme.spacing(1)
   }
 }))
 
@@ -77,6 +80,9 @@ const OpenNavigation = ({ headerType }) => {
     return (
       <>
         <Link to='/' component={CustomLink}>{t('NavigationLinks.home')}</Link>
+        <Tooltip title={t('OpenNavigation.SettingDrop.tooltip')}>
+          <Link to='/settings' component={CustomIconLink}><SettingsIcon /></Link>
+        </Tooltip>
       </>
     )
   }
@@ -140,6 +146,12 @@ const OpenNavigation = ({ headerType }) => {
 
         <Grid item>
           {headerType === 'portfolio' ? portfolioNav() : funNav()}
+          <Link to={headerType === 'portfolio' ? '/funside' : '/'}
+            className={classes.linkMargin}>
+            {headerType === 'portfolio'
+              ? t('NavigationLinks.funSide')
+              : t('NavigationLinks.portfolioSide')}
+          </Link>
         </Grid>
       </Grid>
     </>

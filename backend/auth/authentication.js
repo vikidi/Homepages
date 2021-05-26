@@ -22,16 +22,16 @@ module.exports = {
           req.login(user, { session: false }, async (error) => {
             if (error) return next(error);
 
-            // TODO: more or less?
             const body = {
               id: user.id,
               role: user.role,
-              groups: user.groups
+              groups: user.groups,
+              passChangeReq: user.passChangeReq,
+              admittingReq: user.admittingReq,
+              emailConfReq: user.emailConfReq
             };
 
-            console.log(body);
-
-            const token = jwt.sign({ user: body }, process.env.SECRET);
+            const token = jwt.sign({ user: body }, process.env.SECRET, { expiresIn: 60 * 60 });
 
             return res.json({ ...body, token: `Bearer ${token}` });
           }

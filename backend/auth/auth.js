@@ -9,16 +9,24 @@ passport.use(
   new JWTstrategy(
     {
       secretOrKey: process.env.SECRET,
-      jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken()
+      jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+      jsonWebTokenOptions: {
+        expiresIn: 60 * 60
+      }
     },
 
-    async (token, done) => {
-      try {
-        return done(null, token.user);
-      }
-      catch (error) {
-        done(error);
-      }
+    async (jwt_payload, done) => {
+      await UserModel.findOne({ id: jwt_payload.sub }, (err, user) => {
+        if (err) {
+          return done(err, false);
+        }
+
+        if (user) {
+          return done(null, user);
+        } else {
+          return done(null, false);
+        }
+      });
     }
   )
 );

@@ -118,4 +118,30 @@ module.exports = {
       }
     ];
   },
+
+  authorizeSelf() {
+    return [
+      (req, res, next) => {
+        if (req.user.id === req.params.id) return next();
+
+        res.status(401).end('Unauthorized');
+      }
+    ];
+  },
+
+  authorizeRoleOrSelf(minRole) {
+    return [
+      (req, res, next) => {
+        if (!minRole || !req.user.role) return res.status(401).end('Unauthorized');
+
+        // Check for required role
+        if (checkRole(req.user.role, minRole)) return next();
+
+        // Check for self if role not sufficient
+        if (req.user.id === req.params.id) return next();
+
+        res.status(401).end('Unauthorized');
+      }
+    ];
+  }
 };

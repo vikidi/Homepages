@@ -13,7 +13,7 @@
     "@testing-library/user-event": "12.8.3",
     "classnames": "^2.2.6",
     "eslint-plugin-cypress": "2.11.2",
-    "gsap": "3.6.0",
+    "gsap": "3.7.0",
     "history": "5.0.0",
     "http-proxy-middleware": "1.0.6",
     "i18next": "19.9.2",

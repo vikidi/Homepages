@@ -30,6 +30,7 @@ services:
       npm run start:dev
 
   frontend:
+    image: frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile.dev
@@ -39,5 +40,15 @@ services:
       CHOKIDAR_USEPOLLING: "true"
     env_file: 
       - ./frontend/.env.docker.dev
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - 3000:3000
     command: 
       npm start
+    volumes:
+      - /home/app/node_modules
+      - ./frontend:/home/app
+    networks:
+      - devnetwork

@@ -37,21 +37,5 @@ services:
     networks:
       - devnetwork
 
-  frontend:
-    image: frontend
-    build: 
-      context: ./frontend
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    depends_on:
-      - backend
-    ports:
-      - 3000:3000
-    volumes:
-      - /home/app/node_modules
-      - ./frontend:/home/app
-    networks:
-      - devnetwork
-
 networks:
   devnetwork:

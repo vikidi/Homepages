@@ -22,15 +22,15 @@ const CodeBlockObj = (theme, t) => {
     ],
     [
       {
-        text: `\t<${t('CodeBlockObj.Tags.Country')}>`,
+        text: `\t<${t('CodeBlockObj.Tags.Living')}>`,
         color: theme.palette.text.secondary
       },
       {
-        text: ` ${t('CodeBlockObj.CountryText')} `,
+        text: ` ${t('CodeBlockObj.CountryText')}, Espoo `,
         color: theme.palette.text.primary
       },
       {
-        text: `</${t('CodeBlockObj.Tags.Country')}>`,
+        text: `</${t('CodeBlockObj.Tags.Living')}>`,
         color: theme.palette.text.secondary
       }
     ],
@@ -153,20 +153,6 @@ const CodeBlockObj = (theme, t) => {
         text: `\t\t<${t('CodeBlockObj.Tags.Bachelor')}>`,
         color: theme.palette.text.secondary
       },
-    ],
-    [
-      {
-        text: `\t\t\t<${t('CodeBlockObj.Tags.Status')}>`,
-        color: theme.palette.text.secondary
-      },
-      {
-        text: ` ${t('CodeBlockObj.AReady')} `,
-        color: theme.palette.text.primary
-      },
-      {
-        text: `</${t('CodeBlockObj.Tags.Status')}>`,
-        color: theme.palette.text.secondary
-      }
     ],
     [
       {

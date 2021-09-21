@@ -34,7 +34,7 @@
     "Tags": {
       "MyProfile": "Profiilini",
       "Name": "Nimi",
-      "Country": "Maa",
+      "Living": "Paikkakunta",
       "Work": "Työ",
       "Place": "Paikka",
       "Product": "Tuote",
@@ -51,7 +51,6 @@
     "PositionText": "Trainee @ R&D, Projektointi & Service",
     "StudyPlaceText": "Tampereen Yliopisto, Hervanta",
     "Ongoing": "Menossa",
-    "AReady": "Lähes valmis",
     "SWE": "Ohjelmistosunnittelu",
     "op": "op",
     "PE": "Tehoelektroniikka",

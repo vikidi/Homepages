@@ -34,7 +34,7 @@
     "Tags": {
       "MyProfile": "MyProfile",
       "Name": "Name",
-      "Country": "Country",
+      "Living": "Living",
       "Work": "Work",
       "Place": "Place",
       "Product": "Product",
@@ -51,7 +51,6 @@
     "PositionText": "Trainee @ R&D, Projecting & Service",
     "StudyPlaceText": "Tampere University, Hervanta",
     "Ongoing": "Ongoing",
-    "AReady": "Almost ready",
     "SWE": "Software Engineering",
     "op": "ECTS",
     "PE": "Power Electronics",

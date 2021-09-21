@@ -31,7 +31,10 @@ const getClient = (dbInd) => {
 
   clients.set(dbInd, client);
 
-  client.on('ready', () => logger.info('Connected to Redis database ' + dbInd));
+  client.on('ready', () => {
+    logger.info(`Connected to ${process.env.REDIS_URL}:${process.env.REDIS_PORT}`);
+    logger.info(`Database number: ${dbInd}`);
+  });
 
   return client;
 };

@@ -5,14 +5,24 @@ version: "3.9"
 services:
 
   mongo:
+    ports:
+      - 27017:27017
     env_file: 
       - ./database/mongo/.env.docker.dev
+
+  redis:
+    ports:
+      - 6379:6379
 
   mongo-express:
     image: mongo-express
     restart: unless-stopped
+    depends_on:
+      - mongo
     ports:
       - 8081:8081
+    expose:
+      - "8081"
     env_file: 
       - ./database/mongo-express/.env.docker.dev
     networks:
@@ -22,11 +32,15 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.dev
+    stdin_open: true
+    tty: true
     environment: 
       CHOKIDAR_USEPOLLING: "true"
     env_file: 
       - ./backend/.env.docker.dev
-    command: 
+    ports:
+      - 8080:8080
+    command:
       npm run start:dev
 
   frontend:
@@ -45,6 +59,8 @@ services:
       - backend
     ports:
       - 3000:3000
+    expose:
+      - "3000"
     command: 
       npm start
     volumes:

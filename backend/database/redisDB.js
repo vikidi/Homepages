@@ -41,7 +41,8 @@ const getClient = (dbInd) => {
 
 const disconnect = () => {
   for(const client of clients) {
-    client.disconnect();
+    // Get the value
+    client[1].disconnect();
   }
 };
 

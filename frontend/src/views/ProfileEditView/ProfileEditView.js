@@ -1,16 +1,17 @@
 import React, { useSelector } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
 
 const ProfileEditView = () => {
   const { id } = useParams()
+  const history = useHistory()
   const storeuser = useSelector(store => store.user)
 
   if (!storeuser) { // Is logged in
-    window.location.replace(window.location.origin + '/notauthenticated')
+    history.replace('/notauthenticated')
   } else if (storeuser.role !== 'admin' && storeuser.id !== id) { // Is either admin or self
-    window.location.replace(window.location.origin + '/notauthorized')
+    history.replace('/notauthorized')
   }
 
   return (

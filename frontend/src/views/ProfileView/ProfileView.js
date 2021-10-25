@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { fetchDataWithoutWrapper } from '../../services/dataService'
@@ -8,13 +8,14 @@ import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
 
 const ProfileView = () => {
   const { id } = useParams()
+  const history = useHistory()
   const storeuser = useSelector(store => store.user)
   const [ userdata, setUserData ] = useState(null)
 
   if (!storeuser) { // Is logged in
-    window.location.replace(window.location.origin + '/notauthenticated')
+    history.replace('/notauthenticated')
   } else if (storeuser.role !== 'admin' && storeuser.id !== id) { // Is either admin or self
-    window.location.replace(window.location.origin + '/notauthorized')
+    history.replace('/notauthorized')
   }
 
   // Read real user data from server

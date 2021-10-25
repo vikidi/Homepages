@@ -6,6 +6,10 @@ const fetchData = (url, options) => {
   return promiseWrapper(axios.get(url, options))
 }
 
+const fetchDataWithoutWrapper = (url, options) => {
+  return axios.get(url, options)
+}
+
 const postData = async (url, data, options) => {
   return axios.post(url, data, options)
     .then(result => {
@@ -19,5 +23,6 @@ const postData = async (url, data, options) => {
 
 export {
   fetchData,
+  fetchDataWithoutWrapper,
   postData
 }

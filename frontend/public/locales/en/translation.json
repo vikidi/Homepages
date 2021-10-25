@@ -28,7 +28,7 @@
     "title": "Login",
     "email": "Email",
     "password": "Password",
-    "submit": "Submit"
+    "submit": "Login"
   },
   "CodeBlockObj": {
     "Tags": {
@@ -80,7 +80,8 @@
     "contact": "Contact",
     "adminPanel": "Admin Panel",
     "funSide": "Funside",
-    "portfolioSide": "Portfolio"
+    "portfolioSide": "Portfolio",
+    "profile": "Profile"
   },
   "OpenNavigation": {
     "SettingDrop": {

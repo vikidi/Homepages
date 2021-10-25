@@ -19,6 +19,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import SettingsIcon from '@material-ui/icons/Settings'
 import MeetingRoom from '@material-ui/icons/MeetingRoom'
 import AccountBox from '@material-ui/icons/AccountBox'
+import ProfileIcon from '@material-ui/icons/Person'
 
 // My components
 import NavigationLink from '../NavigationLink/NavigationLink'
@@ -122,10 +123,9 @@ const OpenNavigation = ({ headerType }) => {
           onClose={handleClose}
         >
           <div>
-            {!user && <NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} />}
-          </div>
-          <div>
-            {user && <NavigationButton keyProp='logout' onClick={logout} icon={<MeetingRoom />} text={t('NavigationLinks.logout')} />}
+            {user && <div><NavigationLink keyProp='profile' to={`/users/${user.id}`} icon={<ProfileIcon />} text={t('NavigationLinks.profile')} /></div>}
+            {!user && <div><NavigationLink keyProp='login' to='/login' icon={<ExitToAppIcon />} text={t('NavigationLinks.login')} /></div>}
+            {user && <div><NavigationButton keyProp='logout' onClick={logout} icon={<MeetingRoom />} text={t('NavigationLinks.logout')} /></div>}
           </div>
         </Menu>
       </>

@@ -16,7 +16,7 @@ passport.use(
     },
 
     async (jwt_payload, done) => {
-      await UserModel.findOne({ id: jwt_payload.sub }, (err, user) => {
+      await UserModel.findOne({ _id: jwt_payload.user.id }, (err, user) => {
         if (err) {
           return done(err, false);
         }

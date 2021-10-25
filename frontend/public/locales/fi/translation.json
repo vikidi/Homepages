@@ -17,7 +17,7 @@
     "text": "Lausahda pari kirosanaa minun puolestani ja lataa sivu uudelleen.",
     "Dialog": {
       "title": "Virhe! Tyhjennä paikallinen muisti?",
-      "description": "Haluatko tyhjentää paikallisen muistin? Tämä saattaa ratkaista ongelman.\nTämä ei vaikuta muihin sivustoihin, mutta poistaa sinun asettamat henkilökohtaiset asetukset.",
+      "description": "Haluatko tyhjentää tämän sivuston paikallisen muistin? Tämä saattaa ratkaista ongelman.\nTämä ei vaikuta muihin sivustoihin, mutta poistaa sinun asettamat henkilökohtaiset asetukset.",
       "Button": {
         "dont": "Ei, älä tyhjennä",
         "clear": "Kyllä, tyhjennä ja päivitä"
@@ -80,7 +80,8 @@
     "contact": "Yhteystiedot",
     "adminPanel": "Admin Paneeli",
     "funSide": "Hupipuoli",
-    "portfolioSide": "Portfolio"
+    "portfolioSide": "Portfolio",
+    "profile": "Profiili"
   },
   "OpenNavigation": {
     "SettingDrop": {

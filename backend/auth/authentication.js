@@ -24,6 +24,7 @@ module.exports = {
 
             const body = {
               id: user.id,
+              name: user.name,
               role: user.role,
               groups: user.groups,
               passChangeReq: user.passChangeReq,

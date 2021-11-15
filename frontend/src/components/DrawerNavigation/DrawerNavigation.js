@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 
 import { setUser } from '../../reducers/userReducer'
 
@@ -47,6 +48,7 @@ const DrawerNavigation = ({ headerType }) => {
   const classes = useStyles()
   const { t } = useTranslation()
   const d = useDispatch()
+  const history = useHistory()
 
   const user = useSelector(store => store.user)
 
@@ -61,6 +63,7 @@ const DrawerNavigation = ({ headerType }) => {
   }
 
   const logout = () => {
+    history.push('/')
     d(setUser(null))
   }
 

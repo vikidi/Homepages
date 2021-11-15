@@ -7,37 +7,51 @@ import { fetchDataWithoutWrapper } from '../../services/dataService'
 
 import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
 
+import CustomLoader from '../../components/CustomLoader/CustomLoader'
+
 const ProfileView = () => {
-  const { t } = useTranslation()
   const { id } = useParams()
-  const history = useHistory()
+
+  // Fetch as early as possible
+  const promise = fetchDataWithoutWrapper(`/users/${id}`)
+
   const storeuser = useSelector(store => store.user)
   const [ userdata, setUserData ] = useState(null)
-
-  if (!storeuser) { // Is logged in
-    history.replace('/notauthenticated')
-  } else if (storeuser.role !== 'admin' && storeuser.id !== id) { // Is either admin or self
-    history.replace('/notauthorized')
-  }
+  const { t } = useTranslation()
+  const history = useHistory()
 
   // Read real user data from server
   useEffect(() => {
-    fetchDataWithoutWrapper(`/users/${id}`)
+    promise
       .then(resource => {
         setUserData(resource.data)
       })
       .catch(err => {
         console.log(err)
       })
-  }, [storeuser])
+  }, [storeuser, id])
+
+  /* Check privileges */
+  // Is logged in
+  if (!storeuser) {
+    history.replace('/notauthenticated')
+  }
+  // Is either admin or self
+  else if (storeuser.role !== 'admin' && storeuser.id !== id) {
+    history.replace('/notauthorized')
+  }
 
   // Set page tab title
   if (storeuser) document.title = `VS - ${t('PageTitles.profile')}: ${storeuser.name}`
 
-  return (
-    <ViewWrapper footer={true} fullMain={true} headerType='funside' >
-      <h2>Profile</h2>
-      {userdata &&
+  const userData = () => {
+    console.log(userdata)
+
+    if (!userdata) {
+      return <CustomLoader />
+    }
+
+    return (
       <>
         <h3>ID: {userdata.id}</h3>
         <h3>Name: {userdata.name}</h3>
@@ -48,7 +62,13 @@ const ProfileView = () => {
           <li key={groupKey}>{`${groupKey}: ${userdata.groups[groupKey].role}, ${userdata.groups[groupKey].permissions}`}</li>)}
         </ul>
       </>
-      }
+    )
+  }
+
+  return (
+    <ViewWrapper footer={true} fullMain={true} headerType='funside' >
+      <h2>Profile</h2>
+      {userData()}
     </ViewWrapper>
   )
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { setUser } from '../../reducers/userReducer'
@@ -64,6 +64,7 @@ const OpenNavigation = ({ headerType }) => {
   const classes = useStyles()
   const { t } = useTranslation()
   const d = useDispatch()
+  const history = useHistory()
 
   const user = useSelector(store => store.user)
 
@@ -71,6 +72,7 @@ const OpenNavigation = ({ headerType }) => {
   const open = Boolean(anchorEl)
 
   const logout = () => {
+    history.push('/')
     d(setUser(null))
   }
 

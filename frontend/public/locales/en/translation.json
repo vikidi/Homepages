@@ -14,6 +14,10 @@
     "settings": "Settings",
     "projectlist": "Projects"
   },
+  "ContactView": {
+    "title": "Contact Info",
+    "description": "Feel free to use any of the below."
+  },
   "SettingsView": {
     "title": "Settings",
     "description": "These settings are customisable for you to ensure the best user experience.",

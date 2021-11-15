@@ -30,9 +30,6 @@ services:
       - redis
     expose:
       - "8080"
-    volumes:
-      - ./backend/node_modules:/home/app/node_modules
-      - ./backend:/home/app
     networks:
       - devnetwork
 

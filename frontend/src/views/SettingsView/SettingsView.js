@@ -38,9 +38,6 @@ const Autosave = () => {
   const theme = useTheme()
   const { t } = useTranslation()
 
-  // Set page title
-  document.title = `VS - ${t('PageTitles.settings')}`
-
   return (
     <GridContainer vertical='center' horizontal='flex-end'>
       <CheckCircleOutlineIcon className={classes.root} htmlColor={theme.palette.success.main} />
@@ -52,6 +49,9 @@ const Autosave = () => {
 const SettingsView = () => {
   const { t, i18n } = useTranslation()
   const d = useDispatch()
+
+  // Set page title
+  document.title = `VS - ${t('PageTitles.settings')}`
 
   const theme = useSelector(store => store.theme)
   const language = useSelector(store => store.language)

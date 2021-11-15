@@ -40,6 +40,8 @@ services:
       - ./backend/.env.docker.dev
     ports:
       - 8080:8080
+    volumes:
+      - ./backend:/home/app
     command:
       npm run start:dev
 
@@ -64,7 +66,6 @@ services:
     command: 
       npm start
     volumes:
-      - /home/app/node_modules
       - ./frontend:/home/app
     networks:
       - devnetwork

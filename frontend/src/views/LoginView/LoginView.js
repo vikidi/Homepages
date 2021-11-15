@@ -43,6 +43,9 @@ const LoginView = props => {
   const { t } = useTranslation()
   const d = useDispatch()
 
+  // Set page title
+  document.title = `VS - ${t('PageTitles.login')}`
+
   const submit = async (values) => {
     const result = await postData('auth/login', values)
 

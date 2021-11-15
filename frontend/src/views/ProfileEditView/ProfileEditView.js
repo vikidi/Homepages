@@ -1,9 +1,15 @@
 import React, { useSelector } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
 
 const ProfileEditView = () => {
+  const { t } = useTranslation()
+
+  // Set page title
+  document.title = `VS - ${t('PageTitles.profileedit')}`
+
   const { id } = useParams()
   const history = useHistory()
   const storeuser = useSelector(store => store.user)

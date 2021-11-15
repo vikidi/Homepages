@@ -63,6 +63,9 @@ const MainView = () => {
   const theme = useTheme()
   const { t } = useTranslation()
 
+  // Set page title
+  document.title = `Ville Saarinen - ${t('PageTitles.homepage')}`
+
   const codeBlock = CodeBlockObj(theme, t)
 
   return (

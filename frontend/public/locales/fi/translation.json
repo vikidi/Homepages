@@ -1,4 +1,19 @@
 {
+  "PageTitles": {
+    "adminpanel": "Admin Paneeli",
+    "contact": "Yhteystiedot",
+    "error": "Virhe",
+    "funside": "Hupipuoli",
+    "login": "Kirjautuminen",
+    "homepage": "Kotisivu",
+    "notauthenticated": "Virhe",
+    "notauthorized": "Virhe",
+    "profileedit": "Profiili",
+    "profile": "Profiili",
+    "users": "Käyttäjät",
+    "settings": "Asetukset",
+    "projectlist": "Projektit"
+  },
   "SettingsView": {
     "title": "Asetukset",
     "description": "Sinun on mahdollista muuttaa asetuksiasi, jotta saat parhaan mahdollisen käyttäjäkokemuksen.",

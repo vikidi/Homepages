@@ -47,6 +47,9 @@ const ErrorView = () => {
   const classes = useStyles()
   const { t } = useTranslation()
 
+  // Set page title
+  document.title = `VS - ${t('PageTitles.error')}`
+
   const clearStorage = () => {
     localStorage.clear()
     setOpen(false)

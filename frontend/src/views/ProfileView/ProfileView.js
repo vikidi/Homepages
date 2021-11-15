@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import { fetchDataWithoutWrapper } from '../../services/dataService'
 
 import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
 
 const ProfileView = () => {
+  const { t } = useTranslation()
   const { id } = useParams()
   const history = useHistory()
   const storeuser = useSelector(store => store.user)
@@ -30,7 +32,7 @@ const ProfileView = () => {
   }, [storeuser])
 
   // Set page tab title
-  document.title = `Profile - ${storeuser.name}`
+  if (storeuser) document.title = `VS - ${t('PageTitles.profile')}: ${storeuser.name}`
 
   return (
     <ViewWrapper footer={true} fullMain={true} headerType='funside' >

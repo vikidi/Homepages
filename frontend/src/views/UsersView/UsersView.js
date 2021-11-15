@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import ViewWrapper from '../../components/ViewWrapper/ViewWrapper'
 
@@ -10,6 +11,11 @@ import { fetchData } from '../../services/dataService'
 const resource = fetchData('/users')
 
 const UsersView = () => {
+  const { t } = useTranslation()
+
+  // Set page title
+  document.title = `VS - ${t('PageTitles.users')}`
+
   const user = useSelector(store => store.user)
   const users = resource.read()
 

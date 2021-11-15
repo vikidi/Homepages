@@ -1,4 +1,19 @@
 {
+  "PageTitles": {
+    "adminpanel": "Admin Panel",
+    "contact": "Contacts",
+    "error": "Error",
+    "funside": "Fun Side",
+    "login": "Login",
+    "homepage": "Home Page",
+    "notauthenticated": "Error",
+    "notauthorized": "Error",
+    "profileedit": "Profile",
+    "profile": "Profile",
+    "users": "Users",
+    "settings": "Settings",
+    "projectlist": "Projects"
+  },
   "SettingsView": {
     "title": "Settings",
     "description": "These settings are customisable for you to ensure the best user experience.",

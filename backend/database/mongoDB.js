@@ -41,11 +41,6 @@ if (MONGO_USERNAME === undefined || MONGO_PASSWORD === undefined || MONGO_AUTH_S
 const connect = async () => {
   await mongoose.connect(url, options)
     .then(async () => {
-      if (process.env.NODE_ENV === 'test' && process.env.RESET_DB === 'true') {
-        const testController = require('../controllers/testController');
-        await testController.resetFunc();
-      }
-
       logger.info('Connected to Mongo database');
     })
     .catch((err) => {

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
+import { Auth0Provider  } from '@auth0/auth0-react'
 
 // Axios defaults, before any app settings
 // -> User settings (token, ...) get updated
@@ -29,15 +30,23 @@ import './index.css'
 const Index = () => {
   return (
     <React.StrictMode>
-      <BrowserRouter>
-        <Provider store={store}>
-          <ErrorBoundary>
-            <Suspense fallback={<CustomLoader />} >
-              <App />
-            </Suspense>
-          </ErrorBoundary>
-        </Provider>
-      </BrowserRouter>
+      <Auth0Provider
+        domain={process.env.REACT_APP_AUTH_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
+        redirectUri={window.location.origin}
+        audience={process.env.REACT_APP_AUTH_AUDIENCE}
+        scope=""
+      >
+        <BrowserRouter>
+          <Provider store={store}>
+            <ErrorBoundary>
+              <Suspense fallback={<CustomLoader />} >
+                <App />
+              </Suspense>
+            </ErrorBoundary>
+          </Provider>
+        </BrowserRouter>
+      </Auth0Provider>
     </React.StrictMode>
   )
 }

@@ -1,3 +1,0 @@
-Normal loader:
-
-    <CustomLoader />

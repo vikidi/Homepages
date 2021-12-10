@@ -6,30 +6,13 @@
     "install:front": "cd ./frontend/ && npm ci",
     "install:back": "cd ./backend/ && npm ci",
     "build": "rm -rf ./backend/build && cd ./frontend/ && npm run build && mv -f ./build/ ../backend/",
-    "dependency:check": "depcheck",
-    "deadfile:front": "deadfile ./frontend/src/index.js --dir ./frontend/ --exclude cypress coverage",
     "start:front": "cd ./frontend/ && npm start",
-    "start:front-style": "cd ./frontend/ && npm run styleguidist:server",
-    "start:front-dev": "concurrently \"npm:start:front\" \"npm:start:front-style\"",
     "start:back-prod": "cd ./backend/ && npm run start:prod",
     "start:back-dev": "cd ./backend/ && npm run start:dev",
-    "start:back-test": "cd ./backend/ && npm run start:test",
     "start:full-prod": "npm run build && npm run start:back-prod",
-    "start:full-dev": "concurrently \"npm:start:front\" \"npm:start:front-style\" \"npm:start:back-dev\"",
-    "start:full:test": "concurrently \"npm:start:front\" \"npm:start:back-test\"",
+    "start:full-dev": "concurrently \"npm:start:front\" \"npm:start:back-dev\"",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test:back": "cd ./backend/ && npm test",
-    "test:back-cov": "cd ./backend/ && npm run test:coverage",
-    "test:front": "cd ./frontend/ && npm test",
-    "test:front-cov": "cd ./frontend/ && npm run test:coverage",
-    "test:unit-n-integration": "npm run test:back && npm run test:front",
-    "test:unit-n-integration-cov": "npm run test:back-cov && npm run test:front-cov",
-    "test:cypress-run": "cd ./frontend/ && npm run cypress:run",
-    "test:e2e": "start-server-and-test start:back-test http://localhost:8080/heartbeat start:front http://localhost:3000 test:cypress-run",
-    "test:full": "npm run test:unit-n-integration && npm run test:e2e",
-    "test:full-cov": "npm run test:unit-n-integration-cov && npm run test:e2e",
-    "test:codecov": "echo \"NOT SET UP!\""
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -42,10 +25,7 @@
   },
   "homepage": "https://villesaarinen.me",
   "devDependencies": {
-    "codecov": "3.8.1",
     "concurrently": "6.0.0",
-    "deadfile": "1.2.2",
-    "depcheck": "1.4.0",
     "eslint": "7.22.0"
   },
   "dependencies": {

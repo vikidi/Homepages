@@ -55,8 +55,6 @@ app.use(mongoSanitize());
 // Limit response time after too many requests
 app.use(apiLimiters.getSpeedLimiter());
 
-require('./auth/auth');
-
 require('./router.js')(app);
 
 app.use(middleware.errorHandler);
